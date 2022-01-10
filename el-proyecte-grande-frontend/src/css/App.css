@@ -4,7 +4,7 @@
 }
 
 :root {
-  --header-height: 300px;
+  --header-height: 400px;
 }
 
 /* to check if css is connected */
@@ -12,15 +12,29 @@ h1 {
   color: red;
 }
 
-#header {
+#navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
   height: var(--header-height);
   background-color: blue;
   position: fixed;
+  top: 0;
   width: 100%;
+  padding: 20px;
 }
 
 #content-container {
   height: 2000px;
   background-color: aqua;
-  padding-top: var(--header-height);
+  margin-top: var(--header-height);
+}
+
+.searchBar {
+  padding: 10px;
+  background-color: beige;
+  margin: 10px;
+  width: fit-content;
+  height: fit-content;
 }
