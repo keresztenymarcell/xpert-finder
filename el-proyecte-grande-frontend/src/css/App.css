@@ -1,4 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* to check if css is connected */
 h1 {
   color: red;
+}
+
+.header {
+  background-color: blue;
+  position: absolute;
+}
+
+.randomContent {
+  height: 1000px;
+  background-color: aqua;
 }
