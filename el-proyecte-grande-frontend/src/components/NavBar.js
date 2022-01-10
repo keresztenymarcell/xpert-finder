@@ -1,6 +1,6 @@
 function NavBar({title}) {
     return (
-        <header className='header'>
+        <header id='header'>
             <h1>{title}</h1>
         </header>
     )

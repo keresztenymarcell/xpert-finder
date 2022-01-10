@@ -3,17 +3,23 @@
   padding: 0;
 }
 
+:root {
+  --header-height: 300px;
+}
+
 /* to check if css is connected */
 h1 {
   color: red;
 }
 
-.header {
+#header {
+  height: var(--header-height);
   background-color: blue;
-  position: absolute;
+  position: fixed;
 }
 
-.randomContent {
-  height: 1000px;
+#content-container {
+  height: 2000px;
   background-color: aqua;
+  padding-top: var(--header-height);
 }

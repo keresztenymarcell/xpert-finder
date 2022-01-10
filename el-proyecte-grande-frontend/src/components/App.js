@@ -5,8 +5,9 @@ function App() {
   return (
     <>
     <NavBar title="I'm the title"></NavBar>
-    <h1>Hello Mavens!</h1>
-    <div className='randomContent'></div>
+    <div id='content-container'>
+      <h1>Content Starts Here</h1>
+    </div>
     </>
   );
 }
