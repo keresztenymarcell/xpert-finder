@@ -25,7 +25,7 @@ h1 {
   padding: 20px;
 }
 
-#content-container {
+#contentContainer {
   height: 2000px;
   background-color: aqua;
   margin-top: var(--header-height);
