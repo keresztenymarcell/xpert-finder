@@ -49,4 +49,10 @@ h1 {
 
 #navBarFunctionalContent {
   display: flex;
+  align-items: center;
+}
+
+.baseButton {
+  background-color: pink;
+  padding: 5px;
 }
