@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import SearchPageContent from './SearchPageContent';
 import MainPageContent from './MainPageContent';
+import Footer from './Footer';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route path='/search' element={<SearchPageContent/>} />
           </Routes>
         </Router>
+    <Footer />
     </>
   );
 }
