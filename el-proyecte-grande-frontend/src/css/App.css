@@ -1,4 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --header-height: 400px;
+  --turquoise: #4cbfa6;
+  --softLilac: #f6ebf4;
+  --purple: #482673;
+  --orchid: #ed0b70;
+  --digiDenim: #301008;
+}
+
 /* to check if css is connected */
-h1 {
-  color: red;
+* {
+  color: var(--purple);
+}
+
+#pageTitle {
+  font-size: 100px;
+}
+
+#navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: var(--header-height);
+  background-color: var(--turquoise);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+#contentContainer {
+  display: flex;
+  height: 2000px;
+  background-color: var(--softLilac);
+  margin-top: var(--header-height);
+}
+
+.searchBar {
+  padding: 10px;
+  background-color: var(--softLilac);
+  margin: 10px;
+  width: fit-content;
+  height: fit-content;
+}
+
+#navBarFunctionalContentContainer {
+  height: 80%;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navBarFunctionalContent {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.baseButton {
+  background-color: var(--digiDenim);
+  padding: 5px;
+  border-radius: 10px;
 }
