@@ -5,7 +5,7 @@ function NavBar({title, user, setUser}) {
         <header id='navBar'>
             <img src="smiley.png" alt="logo"></img>
             <div id='navBarFunctionalContentContainer'>
-                <h1>{title}</h1>
+                <h1 id='pageTitle'>{title}</h1>
                 <NavBarFunctionalContent user={user} setUser={setUser} />
             </div>
             

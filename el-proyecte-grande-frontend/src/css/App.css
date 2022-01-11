@@ -1,20 +1,3 @@
-.palette {
-  /* Turquoise */
-  background-color: #4cbfa6;
-
-  /* Soft Lilac */
-  background-color: #f6ebf4;
-
-  /* Purple */
-  background-color: #482673;
-
-  /* Orchid */
-  background-color: #ed0b70;
-
-  /* Digi Denim */
-  background-color: #301008;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -30,8 +13,12 @@
 }
 
 /* to check if css is connected */
-h1 {
-  color: red;
+* {
+  color: var(--purple);
+}
+
+#pageTitle {
+  font-size: 100px;
 }
 
 #navBar {
@@ -40,7 +27,7 @@ h1 {
   align-items: center;
   box-sizing: border-box;
   height: var(--header-height);
-  background-color: blue;
+  background-color: var(--turquoise);
   position: fixed;
   top: 0;
   width: 100%;
@@ -50,28 +37,32 @@ h1 {
 #contentContainer {
   display: flex;
   height: 2000px;
-  background-color: aqua;
+  background-color: var(--softLilac);
   margin-top: var(--header-height);
 }
 
 .searchBar {
   padding: 10px;
-  background-color: beige;
+  background-color: var(--softLilac);
   margin: 10px;
   width: fit-content;
   height: fit-content;
 }
 
 #navBarFunctionalContentContainer {
+  height: 80%;
   flex-grow: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 #navBarFunctionalContent {
+  width: 80%;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .baseButton {
