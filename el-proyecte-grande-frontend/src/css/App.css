@@ -1,3 +1,20 @@
+.palette {
+  /* Turquoise */
+  background-color: #4cbfa6;
+
+  /* Soft Lilac */
+  background-color: #f6ebf4;
+
+  /* Purple */
+  background-color: #482673;
+
+  /* Orchid */
+  background-color: #ed0b70;
+
+  /* Digi Denim */
+  background-color: #301008;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +22,11 @@
 
 :root {
   --header-height: 400px;
+  --turquoise: #4cbfa6;
+  --softLilac: #f6ebf4;
+  --purple: #482673;
+  --orchid: #ed0b70;
+  --digiDenim: #301008;
 }
 
 /* to check if css is connected */
@@ -53,6 +75,7 @@ h1 {
 }
 
 .baseButton {
-  background-color: pink;
+  background-color: var(--digiDenim);
   padding: 5px;
+  border-radius: 10px;
 }

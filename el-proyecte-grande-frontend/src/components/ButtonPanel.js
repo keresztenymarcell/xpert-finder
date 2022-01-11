@@ -2,19 +2,22 @@ import Button from "./Button";
 
 function ButtonPanel({user, setUser}) {
 
+    const buttonBackground = '#482673';
+    const textColor = '#ed0b70';
+
     if (user) {
         return (
             <>
-                <Button text='Log Out' onClick={() => {setUser(null)}}/>
-                <Button text="Messages" />
+                <Button backgroundColor={buttonBackground} textColor={textColor} text='Log Out' onClick={() => {setUser(null)}}/>
+                <Button backgroundColor={buttonBackground} textColor={textColor} text="Messages" />
             </>
         )
     }
     else {
         return (
             <>
-                <Button text='Log In' onClick={() => {setUser('placeholderUser')}}/>
-                <Button text="Register"/>
+                <Button backgroundColor={buttonBackground} textColor={textColor} text='Log In' onClick={() => {setUser('placeholderUser')}}/>
+                <Button backgroundColor={buttonBackground} textColor={textColor} text="Register"/>
             </>
         )
     }
