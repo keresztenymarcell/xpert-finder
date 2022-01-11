@@ -38,3 +38,10 @@ h1 {
   width: fit-content;
   height: fit-content;
 }
+
+.navBarFunctionalContent {
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
