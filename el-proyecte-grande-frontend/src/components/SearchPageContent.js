@@ -1,4 +1,4 @@
-function SearchPage() {
+function SearchPageContent() {
     return (
         <div id="contentContainer">
             <h1>I'm search Page</h1>
@@ -6,4 +6,4 @@ function SearchPage() {
     )
 }
 
-export default SearchPage;
+export default SearchPageContent;
