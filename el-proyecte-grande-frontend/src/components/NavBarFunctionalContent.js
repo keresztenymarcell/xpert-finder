@@ -1,11 +1,11 @@
 import ButtonPanel from "./ButtonPanel";
 import SearchBar from "./SearchBar";
 
-function NavBarFunctionalContent() {
+function NavBarFunctionalContent({user, setUser}) {
     return (
         <div id="navBarFunctionalContent">
             <SearchBar />
-            <ButtonPanel />
+            <ButtonPanel user={user} setUser={setUser} />
         </div>
     )
 }

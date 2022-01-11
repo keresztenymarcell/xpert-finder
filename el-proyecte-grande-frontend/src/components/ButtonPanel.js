@@ -1,27 +1,19 @@
 import Button from "./Button";
-import { useState } from "react";
 
-function ButtonPanel() {
+function ButtonPanel({user, setUser}) {
 
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    function logIn() {
-        console.log("I'm logging in")
-        setLoggedIn(true);
-    }
-
-    if (loggedIn) {
+    if (user) {
         return (
             <>
+                <Button text='Log Out' onClick={() => {setUser(null)}}/>
                 <Button text="Messages" />
-                <Button text="Log Out" />
             </>
         )
     }
     else {
         return (
             <>
-                <Button text="Log In" onclick={logIn} />
+                <Button text='Log In' onClick={() => {setUser('placeholderUser')}}/>
                 <Button text="Register"/>
             </>
         )
