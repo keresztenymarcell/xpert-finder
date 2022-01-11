@@ -26,6 +26,7 @@ h1 {
 }
 
 #contentContainer {
+  display: flex;
   height: 2000px;
   background-color: aqua;
   margin-top: var(--header-height);
@@ -39,9 +40,13 @@ h1 {
   height: fit-content;
 }
 
-.navBarFunctionalContent {
+#navBarFunctionalContentContainer {
   flex-grow: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#navBarFunctionalContent {
+  display: flex;
 }

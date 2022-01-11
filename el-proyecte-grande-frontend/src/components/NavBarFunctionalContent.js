@@ -1,11 +1,12 @@
+import ButtonPanel from "./ButtonPanel";
 import SearchBar from "./SearchBar";
 
-function NavBarFunctionalContent({title}) {
+function NavBarFunctionalContent() {
     return (
-        <div className="navBarFunctionalContent">
-                <h1>{title}</h1>
-                <SearchBar />
-            </div>
+        <div id="navBarFunctionalContent">
+            <SearchBar />
+            <ButtonPanel />
+        </div>
     )
 }
 
