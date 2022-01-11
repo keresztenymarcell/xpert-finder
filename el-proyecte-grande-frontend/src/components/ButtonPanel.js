@@ -1,12 +1,10 @@
+import Button from "./Button";
+
 function ButtonPanel() {
     return (
         <>
-            <button>
-                Log In
-            </button>
-            <button>
-                Register
-            </button>
+            <Button text="Log In"/>
+            <Button text="Register"/>
         </>
     )
 }
