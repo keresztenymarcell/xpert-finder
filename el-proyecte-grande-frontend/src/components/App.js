@@ -6,7 +6,8 @@ import SearchPageContent from './SearchPageContent';
 import MainPageContent from './MainPageContent';
 import Header from './Header'
 import Footer from './Footer'
-import ExpertCard from './ExpertCard'
+
+
 
 function App() {
 
@@ -16,10 +17,11 @@ function App() {
     <>
     <Header user={user}/>
       <Router>
-      <Routes>
-        <Route  path='/' element={<MainPageContent/>} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route  path='/' element={<MainPageContent/>} />
+          <Route path='/search-page' element={<SearchPageContent/>} / >
+        </Routes>
+      </Router>
     <Footer/>
     </>
   );
