@@ -7,7 +7,7 @@
  }
 
  :root {
-  --header-height: 400px;
+  --header-height: 100px;
   --turquoise: #4cbfa6;
   --softLilac: #f6ebf4;
   --purple: #482673;
@@ -35,6 +35,11 @@ header{
   justify-content: space-between;
   align-items:center;
   padding: 30px 10%;
+  top: 0;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  height: 100px;
 }
 
 .logo{
@@ -210,10 +215,9 @@ header{
   padding: 20px;
 }
 
-#contentContainer {
+.content-container {
   display: flex;
   height: 1000px;
-  background-color: var(--softLilac);
   margin-top: var(--header-height);
 }
 
@@ -245,5 +249,9 @@ header{
   background-color: var(--digiDenim);
   padding: 5px;
   border-radius: 10px;
+}
+
+.stars{
+  text-align: right;
 }
 

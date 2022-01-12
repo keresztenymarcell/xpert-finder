@@ -8,6 +8,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 
+
 function App() {
 
   const [user, setUser] = useState(null)
@@ -15,13 +16,12 @@ function App() {
   return (
     <>
     <Header user={user}/>
-     
-    <Router>
-      <Routes>
-        <Route  path='/' element={<MainPageContent/>} />
-        <Route path='/search-page' element={<SearchPageContent/>} / >
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route  path='/' element={<MainPageContent/>} />
+          <Route path='/search-page' element={<SearchPageContent/>} / >
+        </Routes>
+      </Router>
     <Footer/>
     </>
   );

@@ -1,3 +1,4 @@
+import Rating from '@mui/material/Rating';
 
 const ExpertCard = ({}) => {
     return (
@@ -6,11 +7,17 @@ const ExpertCard = ({}) => {
                 <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
                 <p>Dog walking, Repairing, Gardening</p>
             </div>
+            
             <div className="expert-right-container">
                 <h1>John Doe</h1>
                 <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
                 <p>Budapest, New York</p>
+
+                <Rating className="stars" name="half-rating" defaultValue={2.5} precision={0.5} />
             </div>
+            
+            
+
 
         </div>
     )

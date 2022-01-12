@@ -1,4 +1,5 @@
 import ExpertCard from './ExpertCard'
+import {useState, useEffect} from 'react'
 
 
 function SearchPageContent({professionId, locationId}) {
@@ -18,7 +19,7 @@ function SearchPageContent({professionId, locationId}) {
 
 
     return (
-        <div className="search-page-container">
+        <div className="content-container search-page-container ">
             {/* {experts.map(expert =>{
                 //Add a card for each expert
             })} */}
