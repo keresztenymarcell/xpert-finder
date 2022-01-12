@@ -1,4 +1,22 @@
-function SearchBar({}) {
+import { useEffect, useState } from "react";
+
+function SearchBar() {
+
+    const [professions, setProfessions] = useState([])
+    const [locations, setLocations] = useState([])
+
+    useEffect(() => {
+        async function fetchArray() {
+            const response = await fetch("/profession/all-trial")
+            const professions = await response.json()
+
+            console.log(professions)
+            setProfessions(professions)
+        }
+        fetchArray()
+        
+    }, [])
+
     return (
         <div className="searchBar">
             <form>
