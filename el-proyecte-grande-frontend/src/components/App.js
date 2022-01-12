@@ -19,8 +19,8 @@ function App() {
       <Router>
         <Routes>
           <Route  path='/' element={<MainPageContent/>} />
-          <Route path='/profile/:id' element={<ProfilePageContent />} />
-          <Route path='/search-page' element={<SearchPageContent/>} />
+          <Route path='/profile-:id' element={<ProfilePageContent />} />
+          <Route path='/search-page' element={<SearchPageContent />} />
         </Routes>
       </Router>
     <Footer/>
