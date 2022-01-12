@@ -2,9 +2,11 @@ import '../css/App.css';
 import { useState } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import MainPageContent from './MainPageContent';
-import Footer from './Footer';
-import Header from './Header';
+import Header from './Header'
+import Footer from './Footer'
 import ProfilePageContent from './ProfilePageContent';
+import SearchPageContent from './SearchPageContent';
+
 
 
 function App() {
@@ -14,15 +16,14 @@ function App() {
   return (
     <>
     <Header user={user}/>
-    <fjsfjs>
       <Router>
-      <Routes>
-        <Route  path='/' element={<MainPageContent/>} />
-        <Route path='/profile/:id' element={<ProfilePageContent />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route  path='/' element={<MainPageContent/>} />
+          <Route path='/profile/:id' element={<ProfilePageContent />} />
+          <Route path='/search-page' element={<SearchPageContent/>} />
+        </Routes>
+      </Router>
     <Footer/>
-    </fjsfjs>
     </>
   );
 }
