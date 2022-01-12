@@ -20,9 +20,8 @@ function SearchBar() {
 
     useEffect(() => {
         async function loadLocations() {
-            const response = await fetch("/location/all-trial")
+            const response = await fetch("/location/all")
             const locations = await response.json()
-            console.log(locations)
             setLocations(locations)
         }
         loadLocations()
@@ -35,7 +34,7 @@ function SearchBar() {
                 <select name='professions' onChange={(e) => setChoosedProfession(e.target.value)}>
                 <option value={choosedProfession} >Choose a Profession</option>
                     {professions.map((profession) => (
-                        <option key={profession.id} value={profession.id}>{profession.name}</option>
+                        <option key={profession.id} value={profession.id}>{profession.category.name + " - " + profession.name}</option>
                     ))}
                 </select>
 
