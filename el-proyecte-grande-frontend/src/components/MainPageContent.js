@@ -10,7 +10,7 @@ function MainPageContent() {
                <button id="gradient-button">Help Me</button>
             </div>
             <div className="right-column">
-                <img src="/banner.png"></img>
+                <img src="/banner.png" alt="banner"></img>
             </div>
         </div>
         
