@@ -13,6 +13,7 @@
   --purple: #482673;
   --orchid: #ed0b70;
   --digiDenim: #301008;
+  --gray: #25343F;
 }
 
 /* to check if css is connected */
@@ -123,6 +124,8 @@ header {
   width: 15%;
 }
 
+/* Expert card */
+
 .expert-card {
   width: 600px;
   height: 330px;
@@ -136,6 +139,8 @@ header {
 .expert-right-container {
   flex-basis: 50%;
 }
+
+/* Search page  */
 
 .profile-picture {
   display: inline-block;
@@ -184,6 +189,77 @@ header {
 
 .search-page-container .expert-card {
   margin-top: 50px;
+}
+
+/* Profile page */
+
+.profile-page-card{
+  display: flex;
+  
+  
+}
+
+.profile-page-card > .left-container {
+  padding-top: 50px;
+  border-radius: 15px;
+  width: 500px;
+  height: 700px;
+  background-color: #fcfcfc;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.profile-page-card h1{
+  font-size: 45px;
+  padding-top: 50px;
+  font-weight: bolder;
+  color: var(--gray);
+  
+}
+
+
+.profile-page-card p{
+  padding-top: 50px;
+  font-weight: lighter;
+  color: var(--gray);
+}
+
+
+.profile-page-card > .right-container {
+  padding: 20px;
+  padding-top: 50px;
+  border-radius: 15px;
+  width: 800px;
+  height:1000px;
+  background-color: #fcfcfc;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.description{
+  background-color: var(--softLilac);
+  padding: 20px;
+  margin: 3px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+
+.services{
+  background-color: var(--softLilac);
+  padding: 20px;
+  margin: 3px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.services p{
+  margin:0;
+  padding: 5px;
+
 }
 
 #pageTitle {
