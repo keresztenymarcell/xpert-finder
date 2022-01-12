@@ -1,5 +1,3 @@
-
-
 function MainPageContent() {
     return (
 
