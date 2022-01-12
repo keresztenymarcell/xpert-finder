@@ -5,6 +5,7 @@ function SearchBar() {
     const [professions, setProfessions] = useState([])
     const [locations, setLocations] = useState([])
     const [choosedProfession, setChoosedProfession] = useState(null)
+    const [choosedLocation, setChoosedLocation] = useState(null)
 
     useEffect(() => {
         async function loadProfessions() {
@@ -17,6 +18,15 @@ function SearchBar() {
         
     }, [])
 
+    useEffect(() => {
+        async function loadLocations() {
+            const response = await fetch("/location/all-trial")
+            const locations = await response.json()
+            setLocations(locations)
+        }
+        loadLocations()
+    }, [])
+
     return (
         <div className="searchBar">
             <form>
@@ -27,8 +37,13 @@ function SearchBar() {
                         <option key={profession + idx} value={profession}>{profession}</option>
                     ))}
                 </select>
-                <input type='text' placeholder="Choose a Profession"></input>
-                <input type='text' placeholder="Choose a Location" ></input>      
+
+                <select name='locations' onChange={(e) => setChoosedLocation(e.target.value)}>
+                <option value={choosedLocation} >Choose a Location</option>
+                    {locations.map((location, idx) => (
+                        <option key={location + idx} value={location}>{location}</option>
+                    ))}
+                </select>   
             </form>
         </div>
     )
