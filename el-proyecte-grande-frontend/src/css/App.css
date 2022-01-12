@@ -122,6 +122,67 @@ header{
   width: 15%;
 }
 
+.expert-card{
+  width: 600px;
+  height: 330px;
+  background-color: #FCFCFC;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.25);
+  border-radius: 15px;
+  display: flex;
+}
+
+
+.expert-left-container, .expert-right-container{
+  flex-basis: 50%;
+
+}
+
+.profile-picture{
+
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  
+    object-fit: cover;
+}
+
+
+.expert-left-container{
+  text-align: center;
+  padding-top: 70px;
+}
+
+.expert-left-container p {
+  padding-top: 75px;
+  color: #828282; 
+}
+
+.expert-right-container{
+  padding-top: 75px;
+  
+}
+
+.expert-right-container h1{
+  color: var(--orchid);
+  padding-bottom: 15px;
+}
+
+.expert-right-container h3{
+  color: #595959;
+  font-weight: 500;
+  padding-bottom: 15px;
+  color: #828282;
+
+}
+
+.expert-right-container p{
+  color:black;
+}
+
+
+
+
 #pageTitle {
   font-size: 100px;
 }
@@ -175,3 +236,4 @@ header{
   padding: 5px;
   border-radius: 10px;
 }
+
