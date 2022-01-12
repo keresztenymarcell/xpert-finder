@@ -9,7 +9,6 @@ function MainPageContent() {
             <div className="right-column">
                 <img src="/banner.png"></img>
             </div>
-            
         </div>
     )
 }

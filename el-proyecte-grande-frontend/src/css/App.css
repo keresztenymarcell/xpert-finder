@@ -180,6 +180,16 @@ header{
   color:black;
 }
 
+.search-page-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.search-page-container .expert-card {
+  margin-top: 50px;
+}
+
 
 
 
