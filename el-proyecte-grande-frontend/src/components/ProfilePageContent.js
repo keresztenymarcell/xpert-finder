@@ -7,11 +7,12 @@ import {useEffect, useState} from 'react';
 function ProfilePageContent({profileId}) {
 
     const [profile, setProfile] = useState()
+    const params = useParams()
 
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(``);
+            const response = await fetch(`/api/user/${params.id}`);
             const profile = await response.json();
             setProfile(profile);
 
@@ -19,15 +20,11 @@ function ProfilePageContent({profileId}) {
         loadProfile();
     }, [])
 
-
-    const params = useParams()
-
     return (
         <div className="content-container">
             <div className="profile-page-card">
                 <div className="left-container">
                     <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
-                    
                     <h1>John Doe</h1>
                     <p>Budapest, Gyor, Szeged</p>
                     <h1>Reviewed X times</h1>
