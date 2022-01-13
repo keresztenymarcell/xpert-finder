@@ -22,7 +22,7 @@ function ProfilePageContent({profileId}) {
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(`/user/trial-1`);
+            const response = await fetch(`/user/trial-${params.id}`);
             const profile = await response.json();
             setProfile(profile);
             console.log(profile);

@@ -1,11 +1,16 @@
 import Rating from '@mui/material/Rating';
 import ProfessionTag from '../profile-page/ProfessionTag';
+import {useNavigate} from 'react-router-dom'
 
 const ExpertCard = ({expert}) => {
+
+    const navigate = useNavigate();
+
+
     return (
 
         
-        <div className="expert-card">
+        <div onClick={() => {navigate(`/profile-${expert.id}`)}} className="expert-card">
             <div className="expert-left-container">
                 <img className="profile-picture" src={expert.personalInfo.profilePicture} alt="profile picture"></img>
                 {expert.expertInfo.professions.map((profession) => {
