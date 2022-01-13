@@ -12,10 +12,10 @@ const Header = ({user, setUser}) => {
     return (
         
         <header>
-            <img className="logo" src="Xpert_logo.png" alt="logo"></img>
+            <Link to="/"><img className="logo" src="Xpert_logo.png" alt="logo"></img></Link>
             <nav>
                 <ul className="nav_links">
-                    <Link to="/">Home</Link>
+                    <li><Link to="/">Home</Link></li>
                     {(() => {
                         if (user == null){
                            return <li><Link to="/sing-in" onClick={() => {setUser('placeholderUser')}}>Sing in</Link></li> 
