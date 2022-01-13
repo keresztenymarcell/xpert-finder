@@ -25,10 +25,6 @@ function ProfilePageContent({profileId}) {
             const response = await fetch(`/user/trial-${params.id}`);
             const profile = await response.json();
             setProfile(profile);
-            console.log(profile);
-           
-            
-
         }
         loadProfile();
     }, [])
