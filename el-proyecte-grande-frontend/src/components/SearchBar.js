@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
+
+    const navigate = useNavigate()
 
     const [professions, setProfessions] = useState([])
     const [locations, setLocations] = useState([])
@@ -30,7 +33,8 @@ function SearchBar() {
     useEffect(() => {
         async function searchBarListener() {
             if (choosedLocation !== "" && choosedProfession !== "") {
-                await fetch(`/user/search?location=${choosedLocation}&profession=${choosedProfession}`)
+                navigate(`/search-page?location=${choosedLocation}&profession=${choosedProfession}`)
+                //await fetch(`/user/search?location=${choosedLocation}&profession=${choosedProfession}`)
             }
         }
         searchBarListener()
