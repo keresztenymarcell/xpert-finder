@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import Service from './profile-page/Service';
-import Review from './profile-page/Review';
-import Reference from './profile-page/Reference';
+import Service from './Service';
+import Review from './Review';
+import Reference from './Reference';
 import {useEffect, useState} from 'react';
 
 function ProfilePageContent({profileId}) {
