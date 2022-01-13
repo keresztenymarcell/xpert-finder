@@ -1,3 +1,4 @@
+import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 import {
     BrowserRouter as Router,
     Switch,
@@ -5,14 +6,16 @@ import {
     Link
   } from "react-router-dom";
 
+
 const Header = ({user, setUser}) => {
+
     return (
-        <Router>
+        
         <header>
             <img className="logo" src="Xpert_logo.png" alt="logo"></img>
             <nav>
                 <ul className="nav_links">
-                    <li><Link to="/">Home</Link></li>
+                    <Link to="/">Home</Link>
                     {(() => {
                         if (user == null){
                            return <li><Link to="/sing-in" onClick={() => {setUser('placeholderUser')}}>Sing in</Link></li> 
@@ -25,7 +28,7 @@ const Header = ({user, setUser}) => {
                 </ul>
             </nav>
         </header>
-        </Router>
+        
     )
 }
 

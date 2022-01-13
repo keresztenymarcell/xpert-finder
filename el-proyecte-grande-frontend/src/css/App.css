@@ -13,20 +13,18 @@
   --purple: #482673;
   --orchid: #ed0b70;
   --digiDenim: #301008;
+  --gray: #25343F;
 }
 
 /* to check if css is connected */
-* {
-  color: var(--purple);
-}
 
 li,
 a {
   font-family: "Monserrat", sans-serif;
   font-style: bold;
-  font-weight: 500;
-  font-size: 18px;
-  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  color:var(--gray);
   text-decoration: none;
 }
 
@@ -41,6 +39,8 @@ header {
   background-color: white;
   height: 100px;
 }
+
+
 
 .logo {
   cursor: pointer;
@@ -60,7 +60,7 @@ header {
 }
 
 .nav_links li a:hover {
-  color: var(--purple);
+  color: var(--orchid);
 }
 
 .main-page-banner {
@@ -86,6 +86,7 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 
 #gradient-button {
   margin-top: 20px;
@@ -123,6 +124,8 @@ header {
   width: 15%;
 }
 
+/* Expert card */
+
 .expert-card {
   width: 600px;
   height: 330px;
@@ -132,10 +135,21 @@ header {
   display: flex;
 }
 
+.expert-card:hover {
+  background-color: lightblue;
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--turquoise);
+  cursor: pointer;
+
+}
+
 .expert-left-container,
 .expert-right-container {
   flex-basis: 50%;
 }
+
+/* Search page  */
 
 .profile-picture {
   display: inline-block;
@@ -151,6 +165,8 @@ header {
   padding-top: 70px;
 }
 
+
+
 .expert-left-container p {
   padding-top: 75px;
   color: #828282;
@@ -162,7 +178,7 @@ header {
 
 .expert-right-container h1 {
   color: var(--orchid);
-  padding-bottom: 15px;
+  padding-bottom: 30px;
 }
 
 .expert-right-container h3 {
@@ -186,6 +202,209 @@ header {
   margin-top: 50px;
 }
 
+/* Profile page */
+
+.profile-page-card{
+  display: flex;
+  
+  
+}
+
+.profile-page-card > .left-container {
+  padding-top: 50px;
+  border-radius: 15px;
+  width: 500px;
+  height: 700px;
+  background-color: #fcfcfc;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.profile-page-card h1{
+  padding: 20px;
+  text-align: left;
+  font-size: 45px;
+  padding-top: 50px;
+  font-weight: bolder;
+  color: var(--gray);
+  
+}
+
+
+.profile-page-card span{
+  margin-top: 15px;
+  text-align: left;
+}
+
+.profile-page-card h2{
+  padding-left: 20px;
+  margin-top: 20px;
+  text-align: left;
+  color: black;
+}
+
+
+.profile-page-card p{
+  padding-top: 50px;
+  font-weight: lighter;
+  color: var(--gray);
+}
+
+
+.profile-page-card > .right-container {
+  padding: 20px;
+  padding-top: 50px;
+  border-radius: 15px;
+  width: 800px;
+  height:fit-content;
+  background-color: #fcfcfc;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.description{
+  background-color: var(--turquoise);
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin: 3px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+
+.services{
+  background-color: var(--turquoise);
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin: 0px;
+  margin-top: 20px;
+  border-radius: 15px;
+
+}
+
+.services p{
+  margin:0;
+  padding: 5px;
+}
+
+.service {
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+.review-container{
+  max-height: fit-content;
+  display: flex;
+  background-color: var(--turquoise);
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin: 3px;
+  margin-top: 20px;
+  border-radius: 15px;
+
+}
+
+.review-container img{
+
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.review-message{
+  margin-left: 20px;
+  max-width: 400px
+  
+  
+}
+
+.review-message > p{
+ padding-top: 10px;
+ font-weight: normal;
+ color:black;
+}
+
+.review-timestamp{
+  text-align: end;
+  width: 150px;
+}
+
+
+.references-container{
+  background-color: var(--turquoise);
+  border-radius: 15px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.reference{
+  text-align: center;
+  height: 260px;
+  width: 200px;
+  background-color: white;
+  margin: 15px;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border-color: var(--gray);
+  border-style: solid;
+  border-width: 2px;
+}
+
+.reference p{
+  margin-top: 15px;
+  padding: 0px;
+}
+
+
+
+.reference-picture{
+  margin-top: 20px;
+ height: 150px;
+
+}
+
+
+.profession-tag{
+  align-content: space-between;
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+  width: 150px;
+  height: 40;
+  border-style: solid;
+  border-color: var(--turquoise);
+  border-radius: 3px;
+  
+}
+
+.expert-left-container > .profession-tag {
+  margin-left: 20px;
+}
+
+.profession-tag:hover {
+  background-color: var(--softLilac);
+  cursor: pointer;
+}
+
+.profession-tag h4{
+  color: #4cbfa6;
+  vertical-align: center;
+}
+
+.suitcase-icon{
+  color: var(--turquoise);
+}
+
+
+
 #pageTitle {
   font-size: 100px;
 }
@@ -205,7 +424,7 @@ header {
 
 .content-container {
   display: flex;
-  height: 1000px;
+  height: fit-content;
   margin-top: var(--header-height);
 }
 
@@ -242,3 +461,5 @@ header {
 .stars {
   text-align: right;
 }
+
+
