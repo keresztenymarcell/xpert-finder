@@ -13,6 +13,7 @@ function MainPageContent() {
             <div className="right-column">
                 <img src="/banner.png" alt="banner"></img>
             </div>
+            <SearchBar />
         </div>
         
 

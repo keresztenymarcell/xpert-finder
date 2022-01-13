@@ -9,7 +9,7 @@ function SearchBar() {
 
     useEffect(() => {
         async function loadProfessions() {
-            const response = await fetch("/profession/all-trial")
+            const response = await fetch("/profession/all")
             const professions = await response.json()
             setProfessions(professions)
 
@@ -20,7 +20,7 @@ function SearchBar() {
 
     useEffect(() => {
         async function loadLocations() {
-            const response = await fetch("/location/all-trial")
+            const response = await fetch("/location/all")
             const locations = await response.json()
             setLocations(locations)
         }
@@ -34,15 +34,15 @@ function SearchBar() {
                 <p>Find a Professional!</p>
                 <select name='professions' onChange={(e) => setChoosedProfession(e.target.value)}>
                 <option value={choosedProfession} >Choose a Profession</option>
-                    {professions.map((profession, idx) => (
-                        <option key={profession + idx} value={profession}>{profession}</option>
+                    {professions.map((profession) => (
+                        <option key={profession.id} value={profession.id}>{profession.category.name + " - " + profession.name}</option>
                     ))}
                 </select>
 
                 <select name='locations' onChange={(e) => setChoosedLocation(e.target.value)}>
                 <option value={choosedLocation} >Choose a Location</option>
-                    {locations.map((location, idx) => (
-                        <option key={location + idx} value={location}>{location}</option>
+                    {locations.map((location) => (
+                        <option key={location.id} value={location.id}>{location.name}</option>
                     ))}
                 </select>   
             </form>
