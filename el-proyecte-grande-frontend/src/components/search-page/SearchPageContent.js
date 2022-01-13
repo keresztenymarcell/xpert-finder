@@ -28,7 +28,7 @@ function SearchPageContent({professionId, locationId}) {
 
         <div className="content-container search-page-container ">
             {experts !== null ? experts.map((expert) => {
-                return <ExpertCard expert={expert} />
+                return <ExpertCard key={expert.id} expert={expert} />
             }) : <></>}
         </div>
 
