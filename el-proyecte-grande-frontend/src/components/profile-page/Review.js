@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Review = () => {
+const Review = ({review}) => {
     return (
         <div className="review-container">
             <div className="picture">
@@ -8,11 +8,11 @@ const Review = () => {
 
             </div>
             <div className="review-message">
-                <h2>John Doe</h2>
-                <p>He is a very good professional asdasdasdasdasdasdads</p>
+                <h2>{review.reviewer.username}</h2>
+                <p>{review.message}</p>
             </div>
             <div className="review-timestamp">
-                <h4 className="timestamp">2021.04.22</h4>
+                <h4 className="timestamp">{review.time}</h4>
             </div>
             
         </div>

@@ -22,9 +22,9 @@ li,
 a {
   font-family: "Monserrat", sans-serif;
   font-style: bold;
-  font-weight: 500;
-  font-size: 18px;
-  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  color:var(--gray);
   text-decoration: none;
 }
 
@@ -39,6 +39,8 @@ header {
   background-color: white;
   height: 100px;
 }
+
+
 
 .logo {
   cursor: pointer;
@@ -58,7 +60,7 @@ header {
 }
 
 .nav_links li a:hover {
-  color: var(--purple);
+  color: var(--orchid);
 }
 
 .main-page-banner {
@@ -133,6 +135,15 @@ header {
   display: flex;
 }
 
+.expert-card:hover {
+  background-color: lightblue;
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--turquoise);
+  cursor: pointer;
+
+}
+
 .expert-left-container,
 .expert-right-container {
   flex-basis: 50%;
@@ -167,7 +178,7 @@ header {
 
 .expert-right-container h1 {
   color: var(--orchid);
-  padding-bottom: 15px;
+  padding-bottom: 30px;
 }
 
 .expert-right-container h3 {
@@ -279,6 +290,13 @@ header {
   padding: 5px;
 }
 
+.service {
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
 .review-container{
   max-height: fit-content;
   display: flex;
@@ -355,7 +373,7 @@ header {
 
 
 .profession-tag{
-  align-content: space-around;
+  align-content: space-between;
   display: flex;
   margin-top: 20px;
   text-align: center;
@@ -363,11 +381,18 @@ header {
   height: 40;
   border-style: solid;
   border-color: var(--turquoise);
-  border-radius: 5px;
+  border-radius: 3px;
   
 }
 
+.expert-left-container > .profession-tag {
+  margin-left: 20px;
+}
 
+.profession-tag:hover {
+  background-color: var(--softLilac);
+  cursor: pointer;
+}
 
 .profession-tag h4{
   color: #4cbfa6;

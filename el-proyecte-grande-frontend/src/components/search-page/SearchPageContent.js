@@ -9,12 +9,12 @@ function SearchPageContent({professionId, locationId}) {
     useEffect(() => {
         async function fetchSearchedExpert(){
         
-        const response = await fetch(`/user/search-trial`);
+        const response = await fetch(`/user/search-all-trial`);
 
         // const response = await fetch(`/api/user/search?location-id=${locationId}&profession-id=${professionId}`);
         const experts = await response.json();
         setExperts(experts);
-        console.log(experts)
+        console.log(experts);
         }
         fetchSearchedExpert();
     }, [])
@@ -23,11 +23,15 @@ function SearchPageContent({professionId, locationId}) {
 
 
     return (
+
+        
+
         <div className="content-container search-page-container ">
             {experts !== null ? experts.map((expert) => {
                 return <ExpertCard expert={expert} />
             }) : <></>}
         </div>
+
     )
 }
 

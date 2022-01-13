@@ -22,7 +22,7 @@ function ProfilePageContent({profileId}) {
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(`/user/trial/${params.id}`);
+            const response = await fetch(`/user/trial-1`);
             const profile = await response.json();
             setProfile(profile);
             console.log(profile);
@@ -41,7 +41,7 @@ function ProfilePageContent({profileId}) {
         <div className="content-container">
             <div className="profile-page-card">
                 <div className="left-container">
-                    <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img><br/>
+                    <img className="profile-picture" src={profile.personalInfo.profilePicture} alt="profile-picture"></img><br/>
                     <Rating name="read-only" value={profile.expertInfo.rating} readOnly />
                     <h1>{profile.personalInfo.name}</h1>
                     <h2>{profile.expertInfo.jobCount} jobs done<DoneIcon/></h2>
@@ -51,15 +51,19 @@ function ProfilePageContent({profileId}) {
 
                     <h1>About me</h1>
                     <div className="description">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
+                        <h3>{profile.expertInfo.description}</h3>
                     </div>
 
                     <h1>Services</h1>
                     <div className="services">
-                        <Service></Service>
+                
+                        {profile.services.map((service) => {
+                            return <Service service={service}/>
+                        })}
+                        
                     </div>
 
-                    <ReviewContainer/>
+                    <ReviewContainer reviews={profile.reviews}/>
                     <ReferencesContainer references={profile.expertInfo.reference}/>
                     
                     {profile.expertInfo.professions.map((profession) => (
