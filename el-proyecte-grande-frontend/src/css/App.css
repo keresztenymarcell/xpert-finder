@@ -17,9 +17,6 @@
 }
 
 /* to check if css is connected */
-* {
-  color: var(--purple);
-}
 
 li,
 a {
@@ -87,6 +84,7 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 
 #gradient-button {
   margin-top: 20px;
@@ -156,6 +154,8 @@ header {
   padding-top: 70px;
 }
 
+
+
 .expert-left-container p {
   padding-top: 75px;
   color: #828282;
@@ -212,11 +212,26 @@ header {
 }
 
 .profile-page-card h1{
+  padding: 20px;
+  text-align: left;
   font-size: 45px;
   padding-top: 50px;
   font-weight: bolder;
   color: var(--gray);
   
+}
+
+
+.profile-page-card span{
+  margin-top: 15px;
+  text-align: left;
+}
+
+.profile-page-card h2{
+  padding-left: 20px;
+  margin-top: 20px;
+  text-align: left;
+  color: black;
 }
 
 
@@ -337,6 +352,33 @@ header {
  height: 150px;
 
 }
+
+
+.profession-tag{
+  align-content: space-around;
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+  width: 150px;
+  height: 40;
+  border-style: solid;
+  border-color: var(--turquoise);
+  border-radius: 5px;
+  
+}
+
+
+
+.profession-tag h4{
+  color: #4cbfa6;
+  vertical-align: center;
+}
+
+.suitcase-icon{
+  color: var(--turquoise);
+}
+
+
 
 #pageTitle {
   font-size: 100px;

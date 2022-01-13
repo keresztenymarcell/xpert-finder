@@ -3,36 +3,52 @@ import Service from './Service';
 import Review from './Review';
 import Reference from './Reference';
 import {useEffect, useState} from 'react';
+import ProfessionTag from './ProfessionTag';
+import DoneIcon from '@mui/icons-material/Done';
+import Rating from '@mui/material/Rating';
+import ReferencesContainer from './ReferencesContainer';
+import ReviewContainer from './ReviewContainer';
+
+
 
 function ProfilePageContent({profileId}) {
 
-    const [profile, setProfile] = useState()
+    const [profile, setProfile] = useState(null)
+    const [personalInfo, setPersonalInfo] = useState([])
+    const [expertInfo, setExpertInfo] = useState([])
     const params = useParams()
+    
 
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(`/api/user/${params.id}`);
+            const response = await fetch(`/user/trial/${params.id}`);
             const profile = await response.json();
             setProfile(profile);
+            console.log(profile);
+           
+            
 
         }
         loadProfile();
     }, [])
 
+    
+
     return (
+        <>
+        {profile === null ? <></> : 
         <div className="content-container">
             <div className="profile-page-card">
                 <div className="left-container">
-                    <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
-                    <h1>John Doe</h1>
-                    <p>Budapest, Gyor, Szeged</p>
-                    <h1>Reviewed X times</h1>
-                    <p>5.0</p>
-                    <p>{params.id}</p>
+                    <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img><br/>
+                    <Rating name="read-only" value={profile.expertInfo.rating} readOnly />
+                    <h1>{profile.personalInfo.name}</h1>
+                    <h2>{profile.expertInfo.jobCount} jobs done<DoneIcon/></h2>
                 </div>
 
                 <div className="right-container">
+
                     <h1>About me</h1>
                     <div className="description">
                         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
@@ -43,24 +59,19 @@ function ProfilePageContent({profileId}) {
                         <Service></Service>
                     </div>
 
-                    <h1>Reviews</h1>
-
-                    <Review></Review>
-                    <Review></Review>
-                    <Review></Review>
-
-                    <h1>References</h1>
-
-                    <div className="references-container">
-                    <Reference></Reference>
-                    <Reference></Reference>
-
-                    </div>
+                    <ReviewContainer/>
+                    <ReferencesContainer references={profile.expertInfo.reference}/>
                     
-                </div>
+                    {profile.expertInfo.professions.map((profession) => (
+                        <ProfessionTag profession={profession}/>
+                    ))}
+                    
+                    </div>
             </div>
             
         </div>
+                    }
+        </>     
     )
 }
 

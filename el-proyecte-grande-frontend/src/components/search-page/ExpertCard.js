@@ -1,19 +1,24 @@
 import Rating from '@mui/material/Rating';
+import ProfessionTag from '../profile-page/ProfessionTag';
 
-const ExpertCard = ({}) => {
+const ExpertCard = ({expert}) => {
+
+    console.log(expert);
     return (
+
+        
         <div className="expert-card">
             <div className="expert-left-container">
                 <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
-                <p>Dog walking, Repairing, Gardening</p>
+                {expert.expertInfo.professions.map((profession) => {
+                    return <ProfessionTag key={profession.id + profession.name} profession={profession}/>
+                })}
             </div>
             
             <div className="expert-right-container">
-                <h1>John Doe</h1>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
-                <p>Budapest, New York</p>
-
-                <Rating className="stars" name="half-rating" defaultValue={2.5} precision={0.5} />
+                <h1>{expert.personalInfo.name}</h1>
+                <h3>{expert.expertInfo.description}</h3>
+                
             </div>
             
             

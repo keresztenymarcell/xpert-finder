@@ -1,13 +1,12 @@
 
 
-const Reference = () => {
+const Reference = ({reference}) => {
     return (
         <div className="reference">
             <div className="reference-picture-container">
-                <img className="reference-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
+                <img className="reference-picture" src={reference.imagePath} alt="profile-picture"></img>
             </div>
-            <p>This is my reference description</p>
-            
+            <p>{reference.description}</p>
         </div>
     )
 }
