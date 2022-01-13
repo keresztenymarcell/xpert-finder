@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
 import Service from './Service';
-import Review from './Review';
-import Reference from './Reference';
 import {useEffect, useState} from 'react';
 import ProfessionTag from './ProfessionTag';
 import DoneIcon from '@mui/icons-material/Done';
@@ -11,11 +9,9 @@ import ReviewContainer from './ReviewContainer';
 
 
 
-function ProfilePageContent({profileId}) {
+function ProfilePageContent() {
 
     const [profile, setProfile] = useState(null)
-    const [personalInfo, setPersonalInfo] = useState([])
-    const [expertInfo, setExpertInfo] = useState([])
     const params = useParams()
     
 
@@ -25,10 +21,6 @@ function ProfilePageContent({profileId}) {
             const response = await fetch(`/user/trial-${params.id}`);
             const profile = await response.json();
             setProfile(profile);
-            console.log(profile);
-           
-            
-
         }
         loadProfile();
     }, [])
@@ -41,7 +33,7 @@ function ProfilePageContent({profileId}) {
         <div className="content-container">
             <div className="profile-page-card">
                 <div className="left-container">
-                    <img className="profile-picture" src={profile.personalInfo.profilePicture} alt="profile-picture"></img><br/>
+                    <img className="profile-picture" src={profile.personalInfo.profilePicture} alt="me"></img><br/>
                     <Rating name="read-only" value={profile.expertInfo.rating} readOnly />
                     <h1>{profile.personalInfo.name}</h1>
                     <h2>{profile.expertInfo.jobCount} jobs done<DoneIcon/></h2>
@@ -58,7 +50,7 @@ function ProfilePageContent({profileId}) {
                     <div className="services">
                 
                         {profile.services.map((service) => {
-                            return <Service service={service}/>
+                            return <Service key={service.id} service={service}/>
                         })}
                         
                     </div>
@@ -67,7 +59,7 @@ function ProfilePageContent({profileId}) {
                     <ReferencesContainer references={profile.expertInfo.reference}/>
                     
                     {profile.expertInfo.professions.map((profession) => (
-                        <ProfessionTag profession={profession}/>
+                        <ProfessionTag key={profession.id} profession={profession}/>
                     ))}
                     
                     </div>

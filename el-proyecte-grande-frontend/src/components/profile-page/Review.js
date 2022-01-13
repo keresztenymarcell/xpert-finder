@@ -4,7 +4,7 @@ const Review = ({review}) => {
     return (
         <div className="review-container">
             <div className="picture">
-                <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
+                <img className="profile-picture" src="profile-picture.jpeg" alt="profile"></img>
 
             </div>
             <div className="review-message">
