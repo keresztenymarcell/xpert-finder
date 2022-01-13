@@ -1,7 +1,24 @@
 import { useParams } from "react-router-dom";
-import Service from './Service';
+import Service from './profile-page/Service';
+import Review from './profile-page/Review';
+import Reference from './profile-page/Reference';
+import {useEffect, useState} from 'react';
 
-function ProfilePageContent() {
+function ProfilePageContent({profileId}) {
+
+    const [profile, setProfile] = useState()
+
+    useEffect(() => {
+        async function loadProfile(){
+            // TODO: add fetch route
+            const response = await fetch(``);
+            const profile = await response.json();
+            setProfile(profile);
+
+        }
+        loadProfile();
+    }, [])
+
 
     const params = useParams()
 
@@ -10,6 +27,7 @@ function ProfilePageContent() {
             <div className="profile-page-card">
                 <div className="left-container">
                     <img className="profile-picture" src="profile-picture.jpeg" alt="profile-picture"></img>
+                    
                     <h1>John Doe</h1>
                     <p>Budapest, Gyor, Szeged</p>
                     <h1>Reviewed X times</h1>
@@ -27,15 +45,22 @@ function ProfilePageContent() {
                     <div className="services">
                         <Service></Service>
                     </div>
-                    
 
+                    <h1>Reviews</h1>
+
+                    <Review></Review>
+                    <Review></Review>
+                    <Review></Review>
+
+                    <h1>References</h1>
+
+                    <div className="references-container">
+                    <Reference></Reference>
+                    <Reference></Reference>
+
+                    </div>
                     
                 </div>
-
-                
-
-
-
             </div>
             
         </div>
