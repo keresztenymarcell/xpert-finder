@@ -44,6 +44,7 @@ function SearchBar() {
     
 
     return (
+        
         <div className="searchBar">
             <form>
                 <p>Find a Professional!</p>
