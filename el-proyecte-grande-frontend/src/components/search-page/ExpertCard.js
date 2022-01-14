@@ -8,8 +8,8 @@ const ExpertCard = ({expert}) => {
 
     return (
 
-        
         <div onClick={() => {navigate(`/profile-${expert.id}`)}} className="expert-card">
+
             <div className="expert-left-container">
                 <img className="profile-picture" src={expert.personalInfo.profilePicture} alt="profile"></img>
                 {expert.expertInfo.professions.map((profession) => {
@@ -20,7 +20,6 @@ const ExpertCard = ({expert}) => {
             <div className="expert-right-container">
                 <h1>{expert.personalInfo.name}</h1>
                 <h3>{expert.expertInfo.description}</h3>
-                
             </div>
 
         </div>
