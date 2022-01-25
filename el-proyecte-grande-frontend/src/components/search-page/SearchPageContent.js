@@ -9,7 +9,7 @@ function SearchPageContent({professionId, locationId}) {
     useEffect(() => {
         async function fetchSearchedExpert(){
         
-        const response = await fetch(`/user/search-all-trial`);
+        const response = await fetch(`/user/search-trial`);
 
         // const response = await fetch(`/api/user/search?location-id=${locationId}&profession-id=${professionId}`);
         const experts = await response.json();
