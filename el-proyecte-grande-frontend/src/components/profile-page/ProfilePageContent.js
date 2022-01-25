@@ -18,7 +18,7 @@ function ProfilePageContent() {
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(`/user/trial-${params.id}`);
+            const response = await fetch(`/user/${params.id}/expert-profile`);
             const profile = await response.json();
             setProfile(profile);
         }
@@ -49,14 +49,14 @@ function ProfilePageContent() {
                     <h1>Services</h1>
                     <div className="services">
                 
-                        {profile.services.map((service) => {
+                        {profile.expertInfo.services.map((service) => {
                             return <Service key={service.id} service={service}/>
                         })}
                         
                     </div>
 
-                    <ReviewContainer reviews={profile.reviews}/>
-                    <ReferencesContainer references={profile.expertInfo.reference}/>
+                    <ReviewContainer reviews={profile.expertInfo.reviews}/>
+                    <ReferencesContainer references={profile.expertInfo.references}/>
                     
                     {profile.expertInfo.professions.map((profession) => (
                         <ProfessionTag key={profession.id} profession={profession}/>
