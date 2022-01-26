@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header user={user}/>
+        <Header user={user} setUser={setUser} />
         <Routes>
           <Route  path='/' element={<MainPageContent/>} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />

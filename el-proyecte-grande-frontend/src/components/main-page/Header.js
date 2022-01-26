@@ -12,10 +12,10 @@ const Header = ({user, setUser}) => {
                     <li><Link to="/">Home</Link></li>
                     {(() => {
                         if (user == null){
-                           return <li><Link to="/sing-in" onClick={() => {setUser('placeholderUser')}}>Sign in</Link></li> 
+                           return <li onClick={() => {setUser('placeholderUser')}}><a>Sign in</a></li> 
                         }
                         else{
-                           return <li><Link to="/log-out" onClick={() => {setUser(null)}}>Log out</Link></li> 
+                           return <li onClick={() => {setUser(null)}}><a>Log out</a></li> 
                         }
                     })()}
                 <li><Link to="/register">Register</Link></li>
