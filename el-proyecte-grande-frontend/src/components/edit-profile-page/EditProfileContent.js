@@ -4,31 +4,27 @@ function EditProfileContent({userId, professions, locations}) {
 
     const [userData, setUserData] = useState(null);
 
-    let updatedUser = userData;
-
     useEffect(()=>{
         async function getUserData() {
             if (userId != null) {
                 const response = await fetch(`/user/${userId}`)
                 const data = await response.json();
                 setUserData(data);
-                updatedUser = data;
-                
             }   
         }
         getUserData();
     }, [userId])
 
-
-    function updateHomeLocation(id) {
-        const location = locations.find(location => location.id === parseInt(id))
-        updatedUser.personalInfo.location = location;
-        setUserData(updatedUser)
+    function getLocationById(id) {
+        const intId = parseInt(id)
+        const location = locations.find(location => location.id === intId)
+        return {id: intId, name: location.name}
     }
 
     return (
         <div className="content-container simple-content-container">
             <h1>Edit Page</h1>
+            <h5>{JSON.stringify(userData)}</h5>
             {userData &&
             <>
                 <form>
@@ -56,8 +52,8 @@ function EditProfileContent({userId, professions, locations}) {
                     <label>
                         <p>Location</p>
                         
-                        <select id="home-locations" defaultValue={userData.personalInfo.location.name} onChange={(e)=> {
-                            updateHomeLocation(e.target.value)
+                        <select id="home-locations" defaultValue={userData.personalInfo.location.id} onChange={(e)=> {
+                            setUserData({...userData, personalInfo:{...userData.personalInfo, location:getLocationById(e.target.value)}})
                         }}>
                             {locations && 
                                 locations.map(location => {return <option key={location.id} value={location.id}>{location.name}</option>})
