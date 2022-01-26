@@ -37,7 +37,7 @@ header {
   width: 100%;
   position: fixed;
   background-color: white;
-  height: 100px;
+  height: var(--header-height);
 }
 
 .logo {
