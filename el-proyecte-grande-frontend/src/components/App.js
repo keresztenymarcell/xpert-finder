@@ -1,5 +1,5 @@
 import '../css/App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import MainPageContent from './main-page/MainPageContent';
 import Header from './main-page/Header'
@@ -12,12 +12,12 @@ import EditProfileContent from './edit-profile-page/EditProfileContent';
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [userId, setUserId] = useState(null)
 
   return (
     <>
       <Router>
-        <Header user={user} setUser={setUser} />
+        <Header userId={userId} setUserId={setUserId} />
         <Routes>
           <Route  path='/' element={<MainPageContent/>} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />

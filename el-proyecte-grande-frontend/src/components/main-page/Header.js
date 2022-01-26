@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 
 
-const Header = ({user, setUser}) => {
+const Header = ({userId, setUserId}) => {
 
     return (
         
@@ -10,15 +10,15 @@ const Header = ({user, setUser}) => {
             <nav>
                 <ul className="nav_links">
                     <li><Link to="/"><button>Home</button></Link></li>
-                    {user == null ?
+                    {userId == null ?
                     <>
                         <li><Link to="/register"><button>Register</button></Link></li>
-                        <li onClick={() => {setUser('placeholderUser')}}><button>Sign in</button></li>
+                        <li onClick={() => {setUserId(3)}}><button>Sign in</button></li>
                     </>
                     :
                     <>
                         <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
-                        <li onClick={() => {setUser(null)}}><button>Log out</button></li>
+                        <li onClick={() => {setUserId(null)}}><button>Log out</button></li>
                     </>}
                     
                 </ul>
