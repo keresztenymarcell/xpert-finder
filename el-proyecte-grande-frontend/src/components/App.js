@@ -1,5 +1,5 @@
 import '../css/App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import MainPageContent from './main-page/MainPageContent';
 import Header from './main-page/Header'
@@ -22,7 +22,7 @@ function App() {
           <Route  path='/' element={<MainPageContent/>} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
-          <Route path='/edit-profile' element={<EditProfileContent  />} />
+          <Route path='/edit-profile' element={<EditProfileContent userId={userId} />} />
         </Routes>
       </Router>
     <Footer/>
