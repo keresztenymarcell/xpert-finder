@@ -10,15 +10,17 @@ const Header = ({user, setUser}) => {
             <nav>
                 <ul className="nav_links">
                     <li><Link to="/">Home</Link></li>
-                    {(() => {
-                        if (user == null){
-                           return <li onClick={() => {setUser('placeholderUser')}}><a>Sign in</a></li> 
-                        }
-                        else{
-                           return <li onClick={() => {setUser(null)}}><a>Log out</a></li> 
-                        }
-                    })()}
-                <li><Link to="/register">Register</Link></li>
+                    {user == null ?
+                    <>
+                        <li><Link to="/register">Register</Link></li>
+                        <li onClick={() => {setUser('placeholderUser')}}><a>Sign in</a></li>
+                    </>
+                    :
+                    <>
+                        <li><Link to="/edit-profile">Edit Profile</Link></li>
+                        <li onClick={() => {setUser(null)}}><a>Log out</a></li>
+                    </>}
+                    
                 </ul>
             </nav>
         </header>
