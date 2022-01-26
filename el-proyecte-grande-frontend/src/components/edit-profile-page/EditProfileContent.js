@@ -18,14 +18,23 @@ function EditProfileContent({userId, professions, locations}) {
     }, [userId])
 
     return (
-        <div className="content-container">
+        <div className="content-container simple-content-container">
             <h1>Edit Page</h1>
-            <form>
+            {userData &&
+            <>
+                <form>
+                    <h2>Personal Info</h2>
+                    <label>
+                        <p>Name</p>
+                        <input type="text" placeholder={userData.personalInfo.name}></input>
+                    </label>
+                    
+                </form>
+                <form>
 
-            </form>
-            <form>
-
-            </form>
+                </form>
+            </>
+}
         </div>
     )
 }

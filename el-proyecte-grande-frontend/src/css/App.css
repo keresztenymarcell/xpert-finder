@@ -437,3 +437,15 @@ header {
 .stars {
   text-align: right;
 }
+
+.simple-content-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.simple-content-container input {
+  text-align: center;
+}
