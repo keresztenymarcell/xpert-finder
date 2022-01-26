@@ -23,7 +23,7 @@ function ProfilePageContent() {
             setProfile(profile);
         }
         loadProfile();
-    }, [])
+    }, [params.id])
 
     
 

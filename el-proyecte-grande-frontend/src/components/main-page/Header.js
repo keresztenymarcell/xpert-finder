@@ -9,16 +9,16 @@ const Header = ({user, setUser}) => {
             <Link to="/"><img className="logo" src="Xpert_logo.png" alt="logo"></img></Link>
             <nav>
                 <ul className="nav_links">
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/"><button>Home</button></Link></li>
                     {user == null ?
                     <>
-                        <li><Link to="/register">Register</Link></li>
-                        <li onClick={() => {setUser('placeholderUser')}}><a>Sign in</a></li>
+                        <li><Link to="/register"><button>Register</button></Link></li>
+                        <li onClick={() => {setUser('placeholderUser')}}><button>Sign in</button></li>
                     </>
                     :
                     <>
-                        <li><Link to="/edit-profile">Edit Profile</Link></li>
-                        <li onClick={() => {setUser(null)}}><a>Log out</a></li>
+                        <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
+                        <li onClick={() => {setUser(null)}}><button>Log out</button></li>
                     </>}
                     
                 </ul>
