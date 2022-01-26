@@ -1,22 +1,23 @@
 import ExpertCard from './ExpertCard'
 import {useState, useEffect} from 'react'
+import { useLocation } from 'react-router-dom'
 
 
-function SearchPageContent({professionId, locationId}) {
+function SearchPageContent() {
 
     const [experts, setExperts] = useState(null)
+    const search = useLocation().search;
+    const profession = new URLSearchParams(search).get('professionId');
+    const location = new URLSearchParams(search).get('locationId');
 
     useEffect(() => {
         async function fetchSearchedExpert(){
-        
-        const response = await fetch(`/user/search-trial`);
-
-        // const response = await fetch(`/api/user/search?location-id=${locationId}&profession-id=${professionId}`);
+        const response = await fetch(`/user/search?location-id=${location}&profession-id=${profession}`);
         const experts = await response.json();
         setExperts(experts);
         }
         fetchSearchedExpert();
-    }, [])
+    }, [profession, location])
 
 
     return (

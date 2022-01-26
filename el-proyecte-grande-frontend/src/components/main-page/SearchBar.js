@@ -33,13 +33,12 @@ function SearchBar() {
     useEffect(() => {
         async function searchBarListener() {
             if (choosedLocation !== "" && choosedProfession !== "") {
-                navigate(`/search-page?location=${choosedLocation}&profession=${choosedProfession}`)
-                //await fetch(`/user/search?location=${choosedLocation}&profession=${choosedProfession}`)
+                navigate(`/search-page?locationId=${choosedLocation}&professionId=${choosedProfession}`)
             }
         }
         searchBarListener()
         }
-    , [choosedLocation, choosedProfession])
+    , [choosedLocation, choosedProfession, navigate])
 
     
 
