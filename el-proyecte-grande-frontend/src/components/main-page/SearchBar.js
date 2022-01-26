@@ -1,34 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SearchBar() {
+function SearchBar({locations, professions}) {
 
     const navigate = useNavigate()
 
-    const [professions, setProfessions] = useState([])
-    const [locations, setLocations] = useState([])
     const [choosedProfession, setChoosedProfession] = useState("")
     const [choosedLocation, setChoosedLocation] = useState("")
 
-    useEffect(() => {
-        async function loadProfessions() {
-            const response = await fetch("/profession/all")
-            const professions = await response.json()
-            setProfessions(professions)
-
-        }
-        loadProfessions()
-        
-    }, [])
-
-    useEffect(() => {
-        async function loadLocations() {
-            const response = await fetch("/location/all")
-            const locations = await response.json()
-            setLocations(locations)
-        }
-        loadLocations()
-    }, [])
 
     useEffect(() => {
         async function searchBarListener() {

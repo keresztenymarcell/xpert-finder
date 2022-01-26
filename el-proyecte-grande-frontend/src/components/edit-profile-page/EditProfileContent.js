@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function EditProfileContent({userId}) {
+function EditProfileContent({userId, professions, locations}) {
 
     const [userData, setUserData] = useState(null);
 
