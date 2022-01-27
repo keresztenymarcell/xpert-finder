@@ -2,7 +2,7 @@ import SearchBar from './SearchBar'
 
 function MainPageContent() {
     return (
-
+    <>
         <div className="content-container main-page-banner">
             <div className="left-column">
                <h1>In need of an expert?</h1>
@@ -13,9 +13,10 @@ function MainPageContent() {
             <div className="right-column">
                 <img src="/banner.png" alt="banner"></img>
             </div>
-            <SearchBar />
+            
         </div>
-        
+        <SearchBar />
+        </>
 
         
 
