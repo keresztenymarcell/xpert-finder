@@ -58,7 +58,7 @@ const Personalnfo = () => {
                     <input className={"form-input"} id="phoneNumber" name="phoneNumber" type="text" onChange={handleChange}></input><br/>
                         
                     <label htmlFor="location" className={"form-label"}>Location</label><br/>
-                    <select name='location' value="" className={"form-select"} onChange={handleChange}>
+                    <select name='location' value={} className={"form-select"} onChange={handleChange}>
                     <option value="">Location</option>
                         {locations.map((location) => (
                             <option key={location.id} value={location.id} name="location">{location.name}</option>
