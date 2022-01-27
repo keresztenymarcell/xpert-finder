@@ -38,8 +38,7 @@ function EditProfileContent({userId, professions, locations}) {
         const newLocations = updatedUserData.expertInfo.locations;
         newLocations[index] = chosenLocation;
 
-        setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:{...updatedUserData.expertInfo.locations, locations:newLocations}}})
-
+        setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:newLocations}})
     }
 
 
