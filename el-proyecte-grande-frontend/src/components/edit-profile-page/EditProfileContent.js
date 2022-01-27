@@ -57,6 +57,7 @@ function EditProfileContent({userId, professions, locations}) {
             <h1>Edit Page</h1>
             
             {updatedUserData &&
+            
             <>
             <h5>{JSON.stringify(updatedUserData.personalInfo)}</h5>
                 <form>
@@ -105,7 +106,7 @@ function EditProfileContent({userId, professions, locations}) {
                         }}></textarea>
                     </label>
                     <h2>Locations</h2>
-                    <SelectLocationContainer updatedUserData={updatedUserData} updateLocation={updateWorkLocation} locations={locations} />
+                    <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} locations={locations} />
                         
                     <h2>Professions</h2>
                     <h2>Services</h2>
