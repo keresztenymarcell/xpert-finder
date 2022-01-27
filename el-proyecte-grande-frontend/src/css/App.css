@@ -380,7 +380,8 @@ header {
   width: 150px;
   height: 40;
   border-style: solid;
-  border-color: var(--turquoise);
+  border-width: 2px;
+  border-color: var(--gray);
   border-radius: 3px;
   
 }
@@ -395,12 +396,17 @@ header {
 }
 
 .profession-tag h4{
-  color: #4cbfa6;
+  color: var(--gray);
   vertical-align: center;
 }
 
+.profession-name{
+  display: flex;
+  align-items: center;
+}
+
 .suitcase-icon{
-  color: var(--turquoise);
+  color: var(--gray);
 }
 
 
@@ -426,15 +432,10 @@ header {
   display: flex;
   height: fit-content;
   margin-top: var(--header-height);
+  margin-bottom: auto;
 }
 
-.searchBar {
-  padding: 10px;
-  background-color: var(--softLilac);
-  margin: 10px;
-  width: fit-content;
-  height: fit-content;
-}
+
 
 #navBarFunctionalContentContainer {
   height: 80%;
@@ -462,4 +463,25 @@ header {
   text-align: right;
 }
 
+.personal-info-container{
+  height: 400px;
+  display: flex;
+  color: #25343f;
+  margin-top: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchBar {
+  border-radius: 5px;
+  padding: 50px;
+  margin: 10px;
+  width: 50%;
+  height: fit-content;
+}
+
+.searchBar h1{
+  margin-bottom: 15px;
+
+}
 

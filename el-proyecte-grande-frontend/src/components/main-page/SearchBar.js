@@ -46,15 +46,15 @@ function SearchBar() {
         
         <div className="searchBar">
             <form>
-                <p>Find a Professional!</p>
-                <select name='professions' onChange={(e) => setChoosedProfession(e.target.value)}>
+                <h1>Find an Expert!</h1>
+                <select name='professions' className="form-select" onChange={(e) => setChoosedProfession(e.target.value)}>
                 <option value="" >Choose Profession</option>
                     {professions.map((profession) => (
                         <option key={profession.id} value={profession.id}>{profession.category.name + " - " + profession.name}</option>
                     ))}
                 </select>
 
-                <select name='locations' onChange={(e) => setChoosedLocation(e.target.value)}>
+                <select name='locations' className="form-select" onChange={(e) => setChoosedLocation(e.target.value)}>
                 <option value="">Choose Location</option>
                     {locations.map((location) => (
                         <option key={location.id} value={location.id}>{location.name}</option>
