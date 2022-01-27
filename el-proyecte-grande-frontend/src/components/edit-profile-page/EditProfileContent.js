@@ -35,12 +35,21 @@ function EditProfileContent({userId, professions, locations}) {
     function updateWorkLocation(target) {
         const id = parseInt(target.value);
         const index = parseInt(target.dataset.index);
+        const chosenLocation = getLocationById(id);
 
-        const chosenLocation = getLocationById(id)
-        const newLocations = updatedUserData.expertInfo.locations;
-        newLocations[index] = chosenLocation;
+        let newLocations = updatedUserData.expertInfo.locations;
 
+        if (!isItemAlreadyInArray(chosenLocation, newLocations)) {
+            newLocations[index] = chosenLocation;
+        } else {
+            newLocations.splice(index, 1)
+        }
         setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:newLocations}})
+        
+    }
+
+    function isItemAlreadyInArray(item, array) {
+        return array.map(item => item.id).includes(item.id)
     }
 
     return (
@@ -84,7 +93,7 @@ function EditProfileContent({userId, professions, locations}) {
                     </label>
                     <SelectLocation firstValue={updatedUserData.personalInfo.location.id} locations={locations} updateLocation={updateHomeLocation}/>
                 </form>
-                <h5>{JSON.stringify(updatedUserData.expertInfo)}</h5>
+                <h5>{JSON.stringify(updatedUserData.expertInfo.locations)}</h5>
                 {updatedUserData.expertInfo &&
                 <>
                     <form>
