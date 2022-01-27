@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SelectLocation from "./SelectLocation";
 import SelectLocationContainer from "./SelectLocationContainer";
+import {Login} from "../register-page/Login.css"
 
 function EditProfileContent({userId, professions, locations}) {
 
@@ -50,34 +51,34 @@ function EditProfileContent({userId, professions, locations}) {
             <>
             <h5>{JSON.stringify(updatedUserData.personalInfo)}</h5>
                 <form>
-                    <h2>Personal Info</h2>
-                    <label>
+                    <h2 className="form-title">Personal Info</h2>
+                    <label className="form-label">
                         <p>Name</p>
-                        <input type="text" placeholder={updatedUserData.personalInfo.name} onChange={e => {
+                        <input className="form-input" type="text" placeholder={updatedUserData.personalInfo.name} onChange={e => {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, name: e.target.value}})
                         }}></input>
                     </label>
-                    <label>
+                    <label className="form-label">
                         <p>Username</p>
-                        <input type="text" placeholder={updatedUserData.personalInfo.username} onChange={e => {
+                        <input className="form-input" type="text" placeholder={updatedUserData.personalInfo.username} onChange={e => {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, username: e.target.value}})
                         }}></input>
                     </label>
-                    <label>
+                    <label className="form-label">
                         <p>Email</p>
-                        <input type="email" placeholder={updatedUserData.personalInfo.email} onChange={e => {
+                        <input className="form-input" type="email" placeholder={updatedUserData.personalInfo.email} onChange={e => {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, email: e.target.value}})
                         }}></input>
                     </label>
-                    <label>
+                    <label className="form-label">
                         <p>Phone Number</p>
-                        <input type="text" placeholder={updatedUserData.personalInfo.phoneNumber} onChange={e => {
+                        <input className="form-input" type="text" placeholder={updatedUserData.personalInfo.phoneNumber} onChange={e => {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, phoneNumber: e.target.value}})
                         }}></input>
                     </label>
-                    <label>
+                    <label className="form-label">
                         <p>Profile Picture Url</p>
-                        <input type="text" placeholder={updatedUserData.personalInfo.profilePicture} onChange={e => {
+                        <input className="form-input" type="text" placeholder={updatedUserData.personalInfo.profilePicture} onChange={e => {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, profilePicture: e.target.value}})
                         }}></input>
                     </label>
@@ -87,8 +88,8 @@ function EditProfileContent({userId, professions, locations}) {
                 {updatedUserData.expertInfo &&
                 <>
                     <form>
-                    <h2>Expert Info</h2>
-                    <label>
+                    <h2 className="form-title">Expert Info</h2>
+                    <label className="form-label">
                         <p>Description</p>
                         <textarea defaultValue={updatedUserData.expertInfo.description} onChange={e => {
                             setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, description:e.target.value}})
@@ -101,7 +102,6 @@ function EditProfileContent({userId, professions, locations}) {
                     <h2>Services</h2>
                     <h2>References</h2>
                     
-
                     </form>
                 </>
             }
