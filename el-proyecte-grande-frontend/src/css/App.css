@@ -455,3 +455,7 @@ header {
   width: 600px;
   height: 300px;
 }
+
+.edit-profile-content form * {
+  margin: 10px;
+}

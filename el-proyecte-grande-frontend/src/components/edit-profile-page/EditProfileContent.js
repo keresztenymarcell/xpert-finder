@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SelectLocation from "./SelectLocation";
 
 function EditProfileContent({userId, professions, locations}) {
 
@@ -18,14 +19,8 @@ function EditProfileContent({userId, professions, locations}) {
         getUserData();
     }, [userId])
 
-    function getLocationById(id) {
-        const intId = parseInt(id)
-        const location = locations.find(location => location.id === intId)
-        return {id: intId, name: location.name}
-    }
-
     return (
-        <div className="content-container simple-content-container">
+        <div className="content-container simple-content-container edit-profile-content">
             <h1>Edit Page</h1>
             <h5>{JSON.stringify(updatedUserData)}</h5>
             {updatedUserData &&
@@ -62,17 +57,7 @@ function EditProfileContent({userId, professions, locations}) {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, profilePicture: e.target.value}})
                         }}></input>
                     </label>
-                    <label>
-                        <p>Location</p>
-                        
-                        <select id="home-locations" defaultValue={updatedUserData.personalInfo.location.id} onChange={(e)=> {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, location:getLocationById(e.target.value)}})
-                        }}>
-                            {locations && 
-                                locations.map(location => {return <option key={location.id} value={location.id}>{location.name}</option>})
-                            }
-                        </select>
-                    </label>
+                    <SelectLocation firstValue={updatedUserData.personalInfo.location.id} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} locations={locations}/>
                 </form>
                 {updatedUserData.expertInfo &&
                 <>
@@ -85,6 +70,13 @@ function EditProfileContent({userId, professions, locations}) {
                         }}></textarea>
                     </label>
                     <h2>Locations</h2>
+
+
+
+
+                    <h2>Professions</h2>
+                    <h2>Services</h2>
+                    <h2>References</h2>
                     
 
                     </form>
