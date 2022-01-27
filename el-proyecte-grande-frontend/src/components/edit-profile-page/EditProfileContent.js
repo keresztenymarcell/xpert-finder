@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SelectLocation from "./SelectLocation";
+import SelectLocationContainer from "./SelectLocationContainer";
 
 function EditProfileContent({userId, professions, locations}) {
 
@@ -40,8 +41,6 @@ function EditProfileContent({userId, professions, locations}) {
 
         setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:newLocations}})
     }
-
-
 
     return (
         <div className="content-container simple-content-container edit-profile-content">
@@ -96,7 +95,8 @@ function EditProfileContent({userId, professions, locations}) {
                         }}></textarea>
                     </label>
                     <h2>Locations</h2>
-                        {updatedUserData.expertInfo.locations.map((location,idx) => <SelectLocation key={location.id} index={idx} firstValue={updatedUserData.expertInfo.locations[idx].id} updateLocation={updateWorkLocation} locations={locations}/>)}
+                    <SelectLocationContainer updatedUserData={updatedUserData} updateLocation={updateWorkLocation} locations={locations} />
+                        
                     <h2>Professions</h2>
                     <h2>Services</h2>
                     <h2>References</h2>
