@@ -1,19 +1,12 @@
-function SelectLocation({firstValue, updatedUserData, setUpdatedUserData, locations}) {
+import { useState } from "react";
 
-
-    function getLocationById(id) {
-        const intId = parseInt(id)
-        const location = locations.find(location => location.id === intId)
-        return {id: intId, name: location.name}
-    }
+function SelectLocation({firstValue, index, locations, updateLocation}) {
 
     return(
         <label>
-        <p>Location</p>
+        <p>Location {index}</p>
         
-        <select id="home-locations" defaultValue={firstValue} onChange={(e)=> {
-            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, location:getLocationById(e.target.value)}})
-        }}>
+        <select defaultValue={firstValue} data-index={index} onChange={(e)=> {updateLocation(e.target)}}>
             {locations && 
                 locations.map(location => {return <option key={location.id} value={location.id}>{location.name}</option>})
             }

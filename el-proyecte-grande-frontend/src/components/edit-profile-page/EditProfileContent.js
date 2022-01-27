@@ -19,12 +19,38 @@ function EditProfileContent({userId, professions, locations}) {
         getUserData();
     }, [userId])
 
+
+    function getLocationById(id) {
+        const location = locations.find(location => location.id === id)
+        return {id: id, name: location.name}
+    }
+
+    function updateHomeLocation(target) {
+        const id = parseInt(target.value)
+        setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, location:getLocationById(id)}})
+    }
+
+    function updateWorkLocation(target) {
+        const id = parseInt(target.value);
+        const index = parseInt(target.dataset.index);
+
+        const chosenLocation = getLocationById(id)
+        const newLocations = updatedUserData.expertInfo.locations;
+        newLocations[index] = chosenLocation;
+
+        setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:{...updatedUserData.expertInfo.locations, locations:newLocations}}})
+
+    }
+
+
+
     return (
         <div className="content-container simple-content-container edit-profile-content">
             <h1>Edit Page</h1>
-            <h5>{JSON.stringify(updatedUserData)}</h5>
+            
             {updatedUserData &&
             <>
+            <h5>{JSON.stringify(updatedUserData.personalInfo)}</h5>
                 <form>
                     <h2>Personal Info</h2>
                     <label>
@@ -57,8 +83,9 @@ function EditProfileContent({userId, professions, locations}) {
                             setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, profilePicture: e.target.value}})
                         }}></input>
                     </label>
-                    <SelectLocation firstValue={updatedUserData.personalInfo.location.id} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} locations={locations}/>
+                    <SelectLocation firstValue={updatedUserData.personalInfo.location.id} locations={locations} updateLocation={updateHomeLocation}/>
                 </form>
+                <h5>{JSON.stringify(updatedUserData.expertInfo)}</h5>
                 {updatedUserData.expertInfo &&
                 <>
                     <form>
@@ -70,10 +97,7 @@ function EditProfileContent({userId, professions, locations}) {
                         }}></textarea>
                     </label>
                     <h2>Locations</h2>
-
-
-
-
+                        {updatedUserData.expertInfo.locations.map((location,idx) => <SelectLocation key={location.id} index={idx} firstValue={updatedUserData.expertInfo.locations[idx].id} updateLocation={updateWorkLocation} locations={locations}/>)}
                     <h2>Professions</h2>
                     <h2>Services</h2>
                     <h2>References</h2>
