@@ -20,7 +20,7 @@ const LoginPage = () => {
             password: password
           })
         })
-        
+
         const data = await response.json();
         window.localStorage.setItem("access_token", data.access_token);
         window.localStorage.setItem("refresh_token", data.refresh_token);
@@ -45,7 +45,6 @@ const LoginPage = () => {
                 <input className={"form-input"} id="password" name="password" type="text" required onChange={e => {setPassword(e.target.value)}}/><br/>
                 <button onClick={handleSubmit} className={"submit"} >Submit</button>
             </form>
-            
         </div>
         </div>
         </div>

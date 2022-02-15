@@ -7,7 +7,7 @@ import Footer from './main-page/Footer'
 import ProfilePageContent from './profile-page/ProfilePageContent';
 import SearchPageContent from './search-page/SearchPageContent';
 import PersonalInfo from './register-page/Personalnfo'
-import LoginPage from './register-page/LoginPage';
+import LoginPage from './login-page/LoginPage';
 
 
 
