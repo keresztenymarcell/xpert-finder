@@ -132,6 +132,7 @@ header {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: flex;
+  margin: 0 0px 0 7px;
 }
 
 .expert-card:hover {
@@ -409,6 +410,7 @@ header {
   height: fit-content;
   margin-top: var(--header-height);
   margin-bottom: auto;
+  justify-content: space-between;
 }
 
 #navBarFunctionalContentContainer {

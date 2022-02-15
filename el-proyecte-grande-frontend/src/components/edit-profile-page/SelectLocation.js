@@ -4,7 +4,7 @@ function SelectLocation({firstValue, index, locations, updateLocation}) {
 
     return(
         <label>
-        <p>Location {index}</p>
+        {index ? <p>Location {index + 1}</p> : <p>Location</p>}
         
         <select defaultValue={firstValue} data-index={index} onChange={(e)=> {updateLocation(e.target)}}>
             {locations && 
