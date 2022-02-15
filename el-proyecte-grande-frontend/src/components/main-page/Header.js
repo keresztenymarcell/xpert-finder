@@ -3,6 +3,11 @@ import {Link} from "react-router-dom";
 
 const Header = ({user, setUser}) => {
 
+    function clearUser() {
+        localStorage.clear();
+        setUser(null);
+    }
+
     return (
         
         <header>
@@ -11,14 +16,17 @@ const Header = ({user, setUser}) => {
                 <ul className="nav_links">
                     <li><Link to="/">Home</Link></li>
                     {(() => {
-                        if (user == null){
-                           return <li><Link to="/sing-in" onClick={() => {setUser('placeholderUser')}}>Sign in</Link></li> 
+                        if (!user){
+                           return <>
+                            <li><Link to="/login" >Log in</Link></li>
+                            <li><Link to="/register">Register</Link></li>
+                           </>
                         }
                         else{
-                           return <li><Link to="/log-out" onClick={() => {setUser(null)}}>Log out</Link></li> 
+                           return <li><Link to="/" onClick={() => {clearUser()}}>Log out</Link></li> 
                         }
                     })()}
-                <li><Link to="/register">Register</Link></li>
+                
                 </ul>
             </nav>
         </header>

@@ -25,7 +25,7 @@ function App() {
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path="/register" element={<PersonalInfo/>}></Route>
           <Route path="/register" element={<PersonalInfo/>}></Route>
-          <Route path="/login" element={<LoginPage/>}></Route>
+          <Route path="/login" element={<LoginPage setUser={setUser}/>}></Route>
         </Routes>
       </Router>
     <Footer/>

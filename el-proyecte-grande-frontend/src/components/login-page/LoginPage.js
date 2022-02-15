@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import React from 'react'
 import Login from '../register-page/Login.css'
 
-const LoginPage = () => {
+const LoginPage = ({setUser}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -24,7 +24,7 @@ const LoginPage = () => {
         const data = await response.json();
         window.localStorage.setItem("access_token", data.access_token);
         window.localStorage.setItem("refresh_token", data.refresh_token);
-        window.localStorage.setItem("username", data.username);
+        setUser(data.username);
       }
 
 
