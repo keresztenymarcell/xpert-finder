@@ -7,6 +7,7 @@ import Footer from './main-page/Footer'
 import ProfilePageContent from './profile-page/ProfilePageContent';
 import SearchPageContent from './search-page/SearchPageContent';
 import PersonalInfo from './register-page/Personalnfo'
+import LoginPage from './login-page/LoginPage';
 
 
 
@@ -23,6 +24,8 @@ function App() {
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path="/register" element={<PersonalInfo/>}></Route>
+          <Route path="/register" element={<PersonalInfo/>}></Route>
+          <Route path="/login" element={<LoginPage/>}></Route>
         </Routes>
       </Router>
     <Footer/>
