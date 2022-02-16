@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
 import SelectLocation from "./SelectLocation";
 import SelectLocationContainer from "./SelectLocationContainer";
+import SelectProfessionContainer from "./SelectProfessionContainer";
 import {Login} from "../register-page/Login.css"
 import UserService from "../../services/UserService";
 
@@ -36,7 +37,13 @@ function EditProfileContent({user, professions, locations}) {
 
     function getLocationById(id) {
         const location = locations.find(location => location.id === id)
-        return {id: id, name: location.name}
+        return location;
+    }
+
+    function getProfessionById(id) {
+        const profession = professions.find(profession => profession.id === id)
+        console.log(profession)
+        return profession;
     }
 
     function updateHomeLocation(target) {
@@ -57,6 +64,22 @@ function EditProfileContent({user, professions, locations}) {
             newLocations.splice(index, 1)
         }
         setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, locations:newLocations}})
+        
+    }
+
+    function updateProfession(target) {
+        const id = parseInt(target.value);
+        const index = parseInt(target.dataset.index);
+        const chosenProfession = getProfessionById(id);
+
+        let newProfessions = updatedUserData.expertInfo.professions;
+
+        if (!isItemAlreadyInArray(chosenProfession, newProfessions)) {
+            newProfessions[index] = chosenProfession;
+        } else {
+            newProfessions.splice(index, 1)
+        }
+        setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, professions:newProfessions}})
         
     }
 
@@ -122,6 +145,8 @@ function EditProfileContent({user, professions, locations}) {
                     <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} locations={locations} />
                         
                     <h2>Professions</h2>
+                    <h5>{JSON.stringify(updatedUserData.expertInfo.professions)}</h5>
+                    <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} professions={professions} />
                     <h2>Services</h2>
                     <h2>References</h2>
                     

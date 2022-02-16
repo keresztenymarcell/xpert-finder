@@ -18,7 +18,6 @@ function SelectLocationContainer({updatedUserData, setUpdatedUserData, updateLoc
         return remainingLocations;
     }
 
-    console.log(expertInfoLocations)
     return(
         <>
         {expertInfoLocations.map((location,idx) =>
