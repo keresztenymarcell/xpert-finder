@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
 import Login from '../register-page/Login.css'
 import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const LoginPage = ({setUser}) => {
 
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const apiURL = '/login'
-
+    const [validLogin, setValidLogin] = useState(true)
+    const apiURL = '/login';
+    const navigate = useNavigate();
 
     const login = async () => {
 
@@ -22,9 +25,17 @@ const LoginPage = ({setUser}) => {
         })
 
         const data = await response.json();
-        window.localStorage.setItem("access_token", data.access_token);
-        window.localStorage.setItem("refresh_token", data.refresh_token);
-        setUser(data.username);
+        console.log(response.status)
+       
+        if(response.status == 401){
+          setValidLogin(false);
+        } else {
+          setValidLogin(true);
+          window.localStorage.setItem("access_token", data.access_token);
+          window.localStorage.setItem("refresh_token", data.refresh_token);
+          setUser(data.username);
+          navigate("/");
+        }
       }
 
 
@@ -47,8 +58,10 @@ const LoginPage = ({setUser}) => {
 
                 <div className={"login-plus-items"}>
                   <p className={"forgot-password"} >Forgot your password?</p>
-                  <Link to="/register" ><p className={"register-here"}><ul>Register here </ul></p> </Link>
+                  <Link to="/register" ><p className={"register-here"}>Register here</p></Link>
                 </div>
+                {}
+                {!validLogin && <p className="form-validation">{"Bad credentials, try again!"}</p>}
                 
                 <button onClick={handleSubmit} className={"submit"} >Sign in</button>
             </form>

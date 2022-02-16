@@ -21,10 +21,13 @@ const schema = yup.object().shape({
 const Personalnfo = () => {
 
     const navigate = useNavigate();
-    const [locations, setLocations] = useState([])
+    const [locations, setLocations] = useState([]);
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
+
+
     const onSubmit = async (data) => {
         console.log(JSON.stringify(data))
         const response = await fetch("/user/register", {
@@ -35,7 +38,7 @@ const Personalnfo = () => {
         if(response.status == 400){
             window.alert("Username already used, choose something else!")
         }
-        else{
+        else if(response.status == 200){
             navigate('/login');
         }
     }
