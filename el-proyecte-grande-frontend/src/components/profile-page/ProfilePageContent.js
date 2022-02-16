@@ -6,7 +6,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import Rating from '@mui/material/Rating';
 import ReferencesContainer from './ReferencesContainer';
 import ReviewContainer from './ReviewContainer';
-import UserService from '../../services/UserService';
+import UserService from '../service/UserService';
 
 
 

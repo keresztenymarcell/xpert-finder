@@ -3,8 +3,9 @@ import {useNavigate} from "react-router-dom"
 import SelectLocation from "./SelectLocation";
 import SelectLocationContainer from "./SelectLocationContainer";
 import SelectProfessionContainer from "./SelectProfessionContainer";
+import UpdateServicesContainer from "./UpdateServicesContainer";
 import {Login} from "../register-page/Login.css"
-import UserService from "../../services/UserService";
+import UserService from "../service/UserService";
 
 function EditProfileContent({user, professions, locations}) {
 
@@ -148,6 +149,7 @@ function EditProfileContent({user, professions, locations}) {
                     <h5>{JSON.stringify(updatedUserData.expertInfo.professions)}</h5>
                     <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} professions={professions} />
                     <h2>Services</h2>
+                    <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     <h2>References</h2>
                     
                     </form>
