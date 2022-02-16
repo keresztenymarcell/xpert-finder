@@ -1,8 +1,8 @@
-
-
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import React from 'react'
 import Login from '../register-page/Login.css'
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const LoginPage = ({setUser}) => {
 
@@ -36,17 +36,24 @@ const LoginPage = ({setUser}) => {
     return (
 
         <div className={"content-container"}>
-        <div className={"personal-info-container"}>
-        <div>
-            <form>
-                <label htmlFor={"username"} className={"form-label"}>Username</label><br/>
+          <div className={"personal-info-container"}>
+            <div>
+              <h1>Please sign in to your account</h1>
+              <form>
+                <label htmlFor={"username"} className={"form-label"}>Username:</label><br/>
                 <input className={"form-input"} id="username" name="username" type="text" placeholder="johndoe" required onChange={e => {setUsername(e.target.value)}}/><br/>
-                <label htmlFor={"password"} className={"form-label"}>Password</label><br/>
-                <input className={"form-input"} id="password" name="password" type="text" required onChange={e => {setPassword(e.target.value)}}/><br/>
-                <button onClick={handleSubmit} className={"submit"} >Submit</button>
+                <label htmlFor={"password"} className={"form-label"}>Password:</label><br/>
+                <input className={"form-input"} id="password" name="password" type="password" placeholder="********" required onChange={e => {setPassword(e.target.value)}}/><br/>
+
+                <div className={"login-plus-items"}>
+                  <p className={"forgot-password"} >Forgot your password?</p>
+                  <Link to="/register" ><p className={"register-here"}><ul>Register here </ul></p> </Link>
+                </div>
+                
+                <button onClick={handleSubmit} className={"submit"} >Sign in</button>
             </form>
-        </div>
-        </div>
+            </div>
+          </div>
         </div>
     )
 }
