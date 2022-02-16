@@ -2,7 +2,7 @@
     align-items: center;
     background-color:white;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     height: 100vh;
     margin: 200px;
 }
@@ -11,7 +11,7 @@
     background-color:white;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 750px;
+  height: fit-content;
   padding: 20px;
   width: 500px;
   border: #dedede solid 2px;
@@ -83,10 +83,45 @@
   position: relative;
   width: 100%;
   margin-bottom: 10px;
+}
 
+.form-validation{
+height: 25px;
+width: 100%;
+background-color: rgba(221, 215, 25, 0.15);
+border:sandybrown solid 1px;
+border-radius: 5px;
+text-align: left;
+padding-top: 3px;
+padding-left: 5px;
+margin-bottom: 5px;
+color: sandybrown;
 
 }
 
+.login-plus-items{
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forgot-password{
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.register-here{
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.forgot-password:hover{
+  text-decoration:underline;
+}
+
+.register-here:hover{
+  text-decoration:underline;
+}
 
 
 
