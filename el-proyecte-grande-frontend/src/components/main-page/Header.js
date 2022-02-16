@@ -1,7 +1,12 @@
 import {Link} from "react-router-dom";
 
 
-const Header = ({userId, setUserId}) => {
+const Header = ({user, setUser}) => {
+
+    function clearUser() {
+        localStorage.clear();
+        setUser(null);
+    }
 
     return (
         
@@ -9,18 +14,24 @@ const Header = ({userId, setUserId}) => {
             <Link to="/"><img className="logo" src="Xpert_logo.png" alt="logo"></img></Link>
             <nav>
                 <ul className="nav_links">
-                    <li><Link to="/"><button>Home</button></Link></li>
-                    {userId == null ?
-                    <>
-                        <li><Link to="/register"><button>Register</button></Link></li>
-                        <li onClick={() => {setUserId(3)}}><button>Sign in</button></li>
-                    </>
-                    :
-                    <>
-                        <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
-                        <li onClick={() => {setUserId(null)}}><button>Log out</button></li>
-                    </>}
-                    
+                    {(() => {
+                        if (!user){
+                           return <>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/login" >Log in</Link></li>
+                                <li><Link to="/register">Register</Link></li>
+                           </>
+                        }
+                        else{
+                           return <>
+                                <li>Hello, {user}!</li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/" onClick={() => {clearUser()}}>Log out</Link></li>
+                                <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
+                            </>
+                        }
+                    })()}
+                
                 </ul>
             </nav>
         </header>

@@ -6,6 +6,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import Rating from '@mui/material/Rating';
 import ReferencesContainer from './ReferencesContainer';
 import ReviewContainer from './ReviewContainer';
+import UserService from './UserService';
 
 
 
@@ -18,7 +19,8 @@ function ProfilePageContent() {
     useEffect(() => {
         async function loadProfile(){
             // TODO: add fetch route
-            const response = await fetch(`/user/${params.id}/expert-profile`);
+            
+            const response = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
             const profile = await response.json();
             setProfile(profile);
         }
