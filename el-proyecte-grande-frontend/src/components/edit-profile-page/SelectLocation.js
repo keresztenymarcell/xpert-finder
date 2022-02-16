@@ -6,7 +6,7 @@ function SelectLocation({firstValue, index, locations, updateLocation}) {
         <label>
         {index ? <p>Location {index + 1}</p> : <p>Location</p>}
         
-        <select defaultValue={firstValue} data-index={index} onChange={(e)=> {updateLocation(e.target)}}>
+        <select className={"form-select"} defaultValue={firstValue} data-index={index} onChange={(e)=> {updateLocation(e.target)}}>
             {locations && 
                 locations.map(location => {return <option key={location.id} value={location.id}>{location.name}</option>})
             }
