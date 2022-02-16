@@ -14,7 +14,7 @@ import LoginPage from './login-page/LoginPage';
 
 function App() {
 
-  const [userId, setUserId] = useState(null)
+  const [user, setUser] = useState(null)
 
   const [professions, setProfessions] = useState([])
   const [locations, setLocations] = useState([])
@@ -42,15 +42,14 @@ useEffect(() => {
   return (
     <>
       <Router>
-        <Header userId={userId} setUserId={setUserId} />
+        <Header user={user} setUser={setUser} />
         <Routes>
           <Route  path='/' element={<MainPageContent professions={professions} locations={locations} />} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
-          <Route path='/edit-profile' element={<EditProfileContent userId={userId} professions={professions} locations={locations} />} />
-          <Route path="/register" element={<PersonalInfo/>}></Route>
-          <Route path="/register" element={<PersonalInfo/>}></Route>
-          <Route path="/login" element={<LoginPage setUser={setUser}/>}></Route>
+          <Route path='/edit-profile' element={<EditProfileContent user={user} professions={professions} locations={locations} />} />
+          <Route path="/register" element={<PersonalInfo locations={locations}/>}></Route>
+          <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>}></Route>
         </Routes>
       </Router>
     <Footer/>

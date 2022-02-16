@@ -1,10 +1,8 @@
-
-
 import { useEffect, useState } from "react";
-import React from 'react'
-import Login from '../register-page/Login.css'
+import React from 'react';
+import Login from '../register-page/Login.css';
 
-const LoginPage = ({setUser}) => {
+const LoginPage = ({user, setUser}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -34,7 +32,6 @@ const LoginPage = ({setUser}) => {
     }
 
     return (
-
         <div className={"content-container"}>
         <div className={"personal-info-container"}>
         <div>

@@ -10,7 +10,7 @@ const initialFormData = Object.freeze({
 
 })
 
-const Personalnfo = () => {
+const Personalnfo = ({locations}) => {
     
     const [formData, updateFormData] = useState(initialFormData);
 
@@ -27,17 +27,6 @@ const Personalnfo = () => {
         
         //submit to API
     }
-
-    const [locations, setLocations] = useState([])
-
-    useEffect(() => {
-        async function loadLocations() {
-            const response = await fetch("/location/all")
-            const locations = await response.json()
-            setLocations(locations)
-        }
-        loadLocations()
-    }, [])
 
     return (
     <div className={"content-container"}>

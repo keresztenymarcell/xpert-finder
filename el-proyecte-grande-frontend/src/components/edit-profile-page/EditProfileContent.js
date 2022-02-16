@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import SelectLocation from "./SelectLocation";
 import SelectLocationContainer from "./SelectLocationContainer";
 import {Login} from "../register-page/Login.css"
+import UserService from "../profile-page/UserService";
 
-function EditProfileContent({userId, professions, locations}) {
+function EditProfileContent({user, professions, locations}) {
 
     const [userData, setUserData] = useState(null);
 
@@ -11,15 +12,15 @@ function EditProfileContent({userId, professions, locations}) {
 
     useEffect(()=>{
         async function getUserData() {
-            if (userId != null) {
-                const response = await fetch(`/user/${userId}`)
+            if (user != null) {
+                const response = await UserService.getFetchWithHeader(`/user/username/${user}`);
                 const data = await response.json();
                 setUserData(data);
                 setUpdatedUserData(data);
             }   
         }
         getUserData();
-    }, [userId])
+    }, [user])
 
 
     function getLocationById(id) {
