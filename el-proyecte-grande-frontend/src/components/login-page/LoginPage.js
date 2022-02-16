@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import Login from '../register-page/Login.css';
+import { Navigate } from "react-router-dom";
 
 const LoginPage = ({user, setUser}) => {
 
@@ -32,6 +33,7 @@ const LoginPage = ({user, setUser}) => {
     }
 
     return (
+      (!user) ? 
         <div className={"content-container"}>
         <div className={"personal-info-container"}>
         <div>
@@ -45,6 +47,8 @@ const LoginPage = ({user, setUser}) => {
         </div>
         </div>
         </div>
+        :
+        <Navigate to={"/"} />
     )
 }
 
