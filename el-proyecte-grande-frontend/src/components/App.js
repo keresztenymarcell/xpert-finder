@@ -6,9 +6,9 @@ import Header from './main-page/Header'
 import Footer from './main-page/Footer'
 import ProfilePageContent from './profile-page/ProfilePageContent';
 import SearchPageContent from './search-page/SearchPageContent';
-import EditProfileContent from './edit-profile-page/EditProfileContent';
-import PersonalInfo from './register-page/Personalnfo'
+import RegisterPage from './register-page/RegisterPage'
 import LoginPage from './login-page/LoginPage';
+import EditProfileContent from './edit-profile-page/EditProfileContent'
 
 
 
@@ -48,7 +48,7 @@ useEffect(() => {
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path='/edit-profile' element={<EditProfileContent user={user} professions={professions} locations={locations} />} />
-          <Route path="/register" element={<PersonalInfo locations={locations}/>}></Route>
+          <Route path="/register" element={<RegisterPage locations={locations}/>}></Route>
           <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>}></Route>
         </Routes>
       </Router>

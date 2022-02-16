@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
-import React from 'react';
-import Login from '../register-page/Login.css';
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
+import React from 'react'
+import Login from '../register-page/Login.css'
 
 const LoginPage = ({user, setUser}) => {
 
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const apiURL = '/login'
-
+    const [validLogin, setValidLogin] = useState(true)
+    const apiURL = '/login';
+    const navigate = useNavigate();
 
     const login = async () => {
 
@@ -21,9 +24,17 @@ const LoginPage = ({user, setUser}) => {
         })
 
         const data = await response.json();
-        window.localStorage.setItem("access_token", data.access_token);
-        window.localStorage.setItem("refresh_token", data.refresh_token);
-        setUser(data.username);
+        console.log(response.status)
+       
+        if(response.status == 401){
+          setValidLogin(false);
+        } else {
+          setValidLogin(true);
+          window.localStorage.setItem("access_token", data.access_token);
+          window.localStorage.setItem("refresh_token", data.refresh_token);
+          setUser(data.username);
+          navigate("/");
+        }
       }
 
 
@@ -35,20 +46,29 @@ const LoginPage = ({user, setUser}) => {
     return (
       (!user) ? 
         <div className={"content-container"}>
-        <div className={"personal-info-container"}>
-        <div>
-            <form>
-                <label htmlFor={"username"} className={"form-label"}>Username</label><br/>
+          <div className={"personal-info-container"}>
+            <div>
+              <h1>Please sign in to your account</h1>
+              <form>
+                <label htmlFor={"username"} className={"form-label"}>Username:</label><br/>
                 <input className={"form-input"} id="username" name="username" type="text" placeholder="johndoe" required onChange={e => {setUsername(e.target.value)}}/><br/>
-                <label htmlFor={"password"} className={"form-label"}>Password</label><br/>
-                <input className={"form-input"} id="password" name="password" type="text" required onChange={e => {setPassword(e.target.value)}}/><br/>
-                <button onClick={handleSubmit} className={"submit"} >Submit</button>
+                <label htmlFor={"password"} className={"form-label"}>Password:</label><br/>
+                <input className={"form-input"} id="password" name="password" type="password" placeholder="********" required onChange={e => {setPassword(e.target.value)}}/><br/>
+
+                <div className={"login-plus-items"}>
+                  <p className={"forgot-password"} >Forgot your password?</p>
+                  <Link to="/register" ><p className={"register-here"}>Register here</p></Link>
+                </div>
+                {}
+                {!validLogin && <p className="form-validation">{"Bad credentials, try again!"}</p>}
+                
+                <button onClick={handleSubmit} className={"submit"} >Sign in</button>
             </form>
-        </div>
-        </div>
+            </div>
+          </div>
         </div>
         :
-        <Navigate to={"/"} />
+        navigate("/")
     )
 }
 
