@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom"
 import SelectLocation from "./SelectLocation";
 import SelectLocationContainer from "./SelectLocationContainer";
 import {Login} from "../register-page/Login.css"
-import UserService from "../profile-page/UserService";
+import UserService from "../../services/UserService";
 
 function EditProfileContent({user, professions, locations}) {
 
@@ -25,12 +25,13 @@ function EditProfileContent({user, professions, locations}) {
 
 
     function handleSubmit() {
+        sendUpdatedDataToBackend()
         navigate("/");
     }
 
 
-    function sendUpdatedDataToBackend() {
-
+    async function sendUpdatedDataToBackend() {
+        await UserService.postFetchWithHeader(`user/edit`, JSON.stringify(updatedUserData));
     }
 
     function getLocationById(id) {

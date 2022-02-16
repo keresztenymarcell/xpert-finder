@@ -10,7 +10,7 @@ class UserService {
     async postFetchWithHeader(apiURL, body){
         return fetch(apiURL, {
             method: 'POST',
-            headers:{'Authorization': 'Bearer ' + localStorage.access_token},
+            headers:{'Authorization': 'Bearer ' + localStorage.access_token, 'Content-Type': 'application/json'},
             body: body
           })
     }
