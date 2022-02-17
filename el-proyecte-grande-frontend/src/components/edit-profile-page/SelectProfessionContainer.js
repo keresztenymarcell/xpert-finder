@@ -1,8 +1,11 @@
 import SelectProfession from "./SelectProfession";
 import AddNewProfession from "./AddNewProfession";
+import { ProfessionsContext } from "../App";
+import { useContext } from "react";
 
-function SelectProfessionContainer({updatedUserData, setUpdatedUserData, updateProfession, professions}) {
+function SelectProfessionContainer({updatedUserData, setUpdatedUserData, updateProfession}) {
 
+    const professions = useContext(ProfessionsContext);
     const expertInfoProfessions = updatedUserData.expertInfo.professions;
 
     function removeProfession() {

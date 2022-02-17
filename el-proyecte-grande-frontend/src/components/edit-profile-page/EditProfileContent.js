@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
-import SelectLocation from "./SelectLocation";
-import {Login} from "../register-page/Login.css"
 import UserService from "../service/UserService";
 import UpdateExpertInfo from "./UpdateExpertInfo";
+import { LocationsContext, UserContext } from "../App";
+import UpdatePersonalInfo from "./UpdatePersonalInfo";
 
-function EditProfileContent({user, professions, locations}) {
+function EditProfileContent() {
 
+    const user = useContext(UserContext);
+    const locations = useContext(LocationsContext);
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
     const [updatedUserData, setUpdatedUserData] = useState(null)
@@ -29,7 +31,6 @@ function EditProfileContent({user, professions, locations}) {
         navigate("/");
     }
 
-
     async function sendUpdatedDataToBackend() {
         await UserService.postFetchWithHeader(`user/edit`, JSON.stringify(updatedUserData));
     }
@@ -37,11 +38,6 @@ function EditProfileContent({user, professions, locations}) {
     function getLocationById(id) {
         const location = locations.find(location => location.id === id)
         return location;
-    }
-
-    function updateHomeLocation(target) {
-        const id = parseInt(target.value)
-        setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, location:getLocationById(id)}})
     }
 
     return (
@@ -52,42 +48,9 @@ function EditProfileContent({user, professions, locations}) {
             
             <>
             <h5>{JSON.stringify(updatedUserData.personalInfo)}</h5>
-                <form>
-                    <h2 className="form-title">Personal Info</h2>
-                    <label className="form-label">
-                        <p>Name</p>
-                        <input className="form-input" type="text" value={updatedUserData.personalInfo.name} onChange={e => {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, name: e.target.value}})
-                        }}></input>
-                    </label>
-                    <label className="form-label">
-                        <p>Username</p>
-                        <input className="form-input" type="text" value={updatedUserData.personalInfo.username} onChange={e => {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, username: e.target.value}})
-                        }}></input>
-                    </label>
-                    <label className="form-label">
-                        <p>Email</p>
-                        <input className="form-input" type="email" value={updatedUserData.personalInfo.email} onChange={e => {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, email: e.target.value}})
-                        }}></input>
-                    </label>
-                    <label className="form-label">
-                        <p>Phone Number</p>
-                        <input className="form-input" type="text" value={updatedUserData.personalInfo.phoneNumber} onChange={e => {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, phoneNumber: e.target.value}})
-                        }}></input>
-                    </label>
-                    <label className="form-label">
-                        <p>Profile Picture Url</p>
-                        <input className="form-input" type="text" value={updatedUserData.personalInfo.profilePicture} onChange={e => {
-                            setUpdatedUserData({...updatedUserData, personalInfo:{...updatedUserData.personalInfo, profilePicture: e.target.value}})
-                        }}></input>
-                    </label>
-                    <SelectLocation firstValue={updatedUserData.personalInfo.location.id} locations={locations} updateLocation={updateHomeLocation}/>
-                </form>
+            <UpdatePersonalInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} getLocationById={getLocationById} />
                 
-                <UpdateExpertInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} locations={locations} professions={professions} getLocationById={getLocationById} />
+            <UpdateExpertInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} getLocationById={getLocationById} />
             <button className={"submit"} onClick={()=> {handleSubmit()}}>Save Changes</button>
             </>
 }

@@ -25,6 +25,7 @@ function UpdateService({service, index, updatedUserData, setUpdatedUserData}) {
     }
 
     return (
+        <div>
         <form>
             <label htmlFor="name" className={"form-label"}>Service {index + 1} Name</label><br/>
             <input className={"form-input"} type="text" defaultValue={service.name} onChange={(e)=>{updateServiceName(e.target.value)}}></input>
@@ -35,6 +36,7 @@ function UpdateService({service, index, updatedUserData, setUpdatedUserData}) {
             {services.length > 1 && <button type="button"onClick={()=>{deleteService()}}>Remove Service</button>}
     
         </form>
+        </div>
     )
 }
 

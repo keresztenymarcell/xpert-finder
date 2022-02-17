@@ -1,8 +1,11 @@
 import SelectLocation from "./SelectLocation";
 import AddNewLocation from "./AddNewLocation";
+import { LocationsContext } from "../App";
+import { useContext } from "react";
 
-function SelectLocationContainer({updatedUserData, setUpdatedUserData, updateLocation, locations}) {
+function SelectLocationContainer({updatedUserData, setUpdatedUserData, updateLocation}) {
 
+    const locations = useContext(LocationsContext);
     const expertInfoLocations = updatedUserData.expertInfo.locations;
 
     function removeLocation() {

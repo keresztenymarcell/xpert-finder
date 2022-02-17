@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SelectLocationContainer from "./SelectLocationContainer";
 import SelectProfessionContainer from "./SelectProfessionContainer";
 import UpdateReferencesContainer from "./UpdateReferencesContainer";
 import UpdateServicesContainer from "./UpdateServicesContainer";
+import { ProfessionsContext } from "../App";
 
-function UpdateExpertInfo({updatedUserData, setUpdatedUserData, locations, professions, getLocationById}) {
+function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}) {
 
+    const professions = useContext(ProfessionsContext);
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
@@ -77,11 +79,11 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, locations, profe
                     </label>
                     <h2>Locations</h2>
                     <h5>{JSON.stringify(updatedUserData.expertInfo.locations)}</h5>
-                    <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} locations={locations} />
+                    <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} />
                         
                     <h2>Professions</h2>
                     <h5>{JSON.stringify(updatedUserData.expertInfo.professions)}</h5>
-                    <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} professions={professions} />
+                    <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} />
                     <h2>Services</h2>
                     <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     <h2>References</h2>
