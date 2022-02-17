@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
-import Login from '../register-page/Login.css'
 
 const LoginPage = ({setUser}) => {
 
@@ -24,9 +23,8 @@ const LoginPage = ({setUser}) => {
         })
 
         const data = await response.json();
-        console.log(response.status)
        
-        if(response.status == 401){
+        if(response.status === 401){
           setValidLogin(false);
         } else {
           setValidLogin(true);

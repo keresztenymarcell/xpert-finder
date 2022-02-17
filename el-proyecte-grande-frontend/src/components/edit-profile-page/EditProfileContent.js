@@ -44,12 +44,9 @@ function EditProfileContent() {
         <div className="content-container simple-content-container edit-profile-content">
             <h1>Edit Page</h1>
             
-            {updatedUserData &&
-            
+            {updatedUserData &&       
             <>
-            <h5>{JSON.stringify(updatedUserData.personalInfo)}</h5>
-            <UpdatePersonalInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} getLocationById={getLocationById} />
-                
+            <UpdatePersonalInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} getLocationById={getLocationById} />                
             <UpdateExpertInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} getLocationById={getLocationById} />
             <button className={"submit"} onClick={()=> {handleSubmit()}}>Save Changes</button>
             </>

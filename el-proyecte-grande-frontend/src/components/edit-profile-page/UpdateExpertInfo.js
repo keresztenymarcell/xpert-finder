@@ -42,7 +42,6 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
         async function createNewExpertInfo() {
             if (isChecked) {
                 setUpdatedUserData({...updatedUserData, expertInfo:defaultExpertInfo})
-                console.log(defaultExpertInfo)
             }
         }
         createNewExpertInfo()
@@ -87,7 +86,6 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
 
     function getProfessionById(id) {
         const profession = professions.find(profession => profession.id === id)
-        console.log(profession)
         return profession;
     }
 
@@ -104,11 +102,9 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
                         }}></textarea>
                     </label>
                     <h2>Locations</h2>
-                    <h5>{JSON.stringify(updatedUserData.expertInfo.locations)}</h5>
                     <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} />
                         
                     <h2>Professions</h2>
-                    <h5>{JSON.stringify(updatedUserData.expertInfo.professions)}</h5>
                     <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} />
                     <h2>Services</h2>
                     <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />

@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import Login from '../register-page/Login.css'
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
@@ -26,22 +25,21 @@ const RegisterPage = () => {
 
     const navigate = useNavigate();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 
 
     const onSubmit = async (data) => {
-        console.log(JSON.stringify(data))
         const response = await fetch("/user/register", {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify(data)
         })
-        if(response.status == 400){
+        if(response.status === 400){
             window.alert("Username already used, choose something else!")
         }
-        else if(response.status == 200){
+        else if(response.status === 200){
             navigate('/login');
         }
     }
