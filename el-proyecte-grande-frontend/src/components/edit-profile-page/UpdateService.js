@@ -1,19 +1,24 @@
-function UpdateService({service, index}) {
-    return (
-        <label>
-        {index ? <p>Service {index + 1}</p> : <p>Service</p>}
-        
-        <input type="text" defaultValue={service.name}></input>
-        <input type="textarea" defaultValue={service.description}></input>
-        <input type="text" defaultValue={service.price}></input>
+function UpdateService({service, index, updatedUserData, setUpdatedUserData}) {
 
-        {/* <select className={"form-select"} defaultValue={firstValue} data-index={index} onChange={(e)=> {updateProfession(e.target)}}>
-            {hasChooseHeader && <option value="">Choose a Profession:</option>}
-            {professions && 
-                professions.map(profession => {return <option key={profession.id} value={profession.id}>{profession.name}</option>})
-            }
-        </select> */}
-    </label>
+
+    function deleteService(deleteIdString) {
+        const deleteId = parseInt(deleteIdString);
+        let services = updatedUserData.expertInfo.services;
+        const remainingServices = services.filter(service => service.id !== deleteId)
+        setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, services:remainingServices}})
+    }
+
+    return (
+        
+        <form>
+        <label htmlFor="name" className={"form-label"}>Service {index + 1} Name</label><br/>
+        <input className={"form-input"} type="text" defaultValue={service.name}></input>
+        <label htmlFor="description" className={"form-label"}>Description</label><br/>
+        <textarea className={"form-input"} defaultValue={service.description}></textarea>
+        <label htmlFor="price" className={"form-label"}>Price</label><br/>
+        <input className={"form-input"} type="text" defaultValue={service.price}></input>
+        <button type="button" value={service.id} onClick={(e)=>{deleteService(e.target.value)}}>Remove</button>
+        </form>
     )
 }
 

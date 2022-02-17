@@ -44,7 +44,6 @@ const LoginPage = ({user, setUser}) => {
     }
 
     return (
-      (!user) ? 
         <div className={"content-container"}>
           <div className={"personal-info-container"}>
             <div>
@@ -67,8 +66,6 @@ const LoginPage = ({user, setUser}) => {
             </div>
           </div>
         </div>
-        :
-        navigate("/")
     )
 }
 
