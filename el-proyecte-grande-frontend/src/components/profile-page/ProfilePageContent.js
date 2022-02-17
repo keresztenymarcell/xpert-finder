@@ -15,12 +15,13 @@ import ProfessionContainer from './ProfessionContainer';
 
 
 
-function ProfilePageContent() {
+function ProfilePageContent({user}) {
 
-    const user = useContext(UserContext);
+    // const user = useContext(UserContext);
     const [profile, setProfile] = useState(null)
     const params = useParams()
     
+    console.log(user)
 
     useEffect(() => {
         async function loadProfile(){

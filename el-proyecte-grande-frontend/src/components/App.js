@@ -54,7 +54,7 @@ useEffect(() => {
         <Header setUser={setUser}/>
         <Routes>
           <Route  path='/' element={<MainPageContent />} />
-          <Route path='/profile-:id' element={<ProfilePageContent />} />
+          <Route path='/profile-:id' element={<ProfilePageContent user={user} />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path='/edit-profile' element={<EditProfileContent />} />
           <Route path="/register" element={<RegisterPage />}></Route>
