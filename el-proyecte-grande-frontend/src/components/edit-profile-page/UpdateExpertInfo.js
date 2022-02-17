@@ -1,9 +1,25 @@
+import { useEffect, useState } from "react";
 import SelectLocationContainer from "./SelectLocationContainer";
 import SelectProfessionContainer from "./SelectProfessionContainer";
 import UpdateReferencesContainer from "./UpdateReferencesContainer";
 import UpdateServicesContainer from "./UpdateServicesContainer";
 
-function UpdateExpertInfo(updatedUserData, setUpdatedUserData, locations, professions, getLocationById) {
+function UpdateExpertInfo({updatedUserData, setUpdatedUserData, locations, professions, getLocationById}) {
+
+    const [isChecked, setIsChecked] = useState(false);
+
+    useEffect(() => {
+        async function createNewExpertInfo() {
+            if (isChecked) {
+                const response = await fetch("/user/new-expert-info")
+                const newExpertInfo = await response.json()
+                setUpdatedUserData({...updatedUserData, expertInfo:newExpertInfo})
+                console.log(newExpertInfo)
+            }
+        }
+        createNewExpertInfo()
+        
+    }, [isChecked])
 
     function updateWorkLocation(target) {
         const id = parseInt(target.value);
@@ -46,10 +62,11 @@ function UpdateExpertInfo(updatedUserData, setUpdatedUserData, locations, profes
         console.log(profession)
         return profession;
     }
+
     
     return (
         <>
-        {updatedUserData.expertInfo &&
+        {updatedUserData.expertInfo ?
                     <form>
                     <h2 className="form-title">Expert Info</h2>
                     <label className="form-label">
@@ -71,7 +88,12 @@ function UpdateExpertInfo(updatedUserData, setUpdatedUserData, locations, profes
                     <UpdateReferencesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     
                     </form>
-            }
+        :
+        <>
+        <input type="checkbox" id="expert" name="expert" onChange={()=> setIsChecked(!isChecked)} />
+        <label htmlFor="expert">I want to be an expert</label>
+        </>
+        }
         </>
     )
 }

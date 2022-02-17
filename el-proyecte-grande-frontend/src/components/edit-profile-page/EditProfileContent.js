@@ -87,7 +87,7 @@ function EditProfileContent({user, professions, locations}) {
                     <SelectLocation firstValue={updatedUserData.personalInfo.location.id} locations={locations} updateLocation={updateHomeLocation}/>
                 </form>
                 
-                <UpdateExpertInfo locations={locations} professions={professions} getLocationById={getLocationById} />
+                <UpdateExpertInfo updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} locations={locations} professions={professions} getLocationById={getLocationById} />
             <button className={"submit"} onClick={()=> {handleSubmit()}}>Save Changes</button>
             </>
 }
