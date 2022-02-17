@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import Login from '../register-page/Login.css'
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import  { useNavigate } from 'react-router-dom';
+import { LocationsContext } from "../App";
 
 
 
@@ -19,39 +19,30 @@ const schema = yup.object().shape({
 
 })
 
-const Personalnfo = () => {
+const RegisterPage = () => {
+
+    const locations = useContext(LocationsContext);
 
     const navigate = useNavigate();
-    const [locations, setLocations] = useState([]);
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 
 
     const onSubmit = async (data) => {
-        console.log(JSON.stringify(data))
         const response = await fetch("/user/register", {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify(data)
         })
-        if(response.status == 400){
+        if(response.status === 400){
             window.alert("Username already used, choose something else!")
         }
-        else if(response.status == 200){
+        else if(response.status === 200){
             navigate('/login');
         }
     }
-
-    useEffect(() => {
-        async function loadLocations() {
-            const response = await fetch("/location/all")
-            const locations = await response.json()
-            setLocations(locations)
-        }
-        loadLocations()
-    }, [])
 
     return (
     <div className={"content-container"}>
@@ -134,4 +125,4 @@ const Personalnfo = () => {
     )
 }
 
-export default Personalnfo
+export default RegisterPage
