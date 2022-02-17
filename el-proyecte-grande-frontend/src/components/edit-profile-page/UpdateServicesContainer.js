@@ -9,8 +9,8 @@ function UpdateServicesContainer({updatedUserData, setUpdatedUserData}) {
         <>
             <p>{JSON.stringify(updatedUserData.expertInfo.services)}</p>
             {updatedUserData.expertInfo.services.map((service,idx) =>
-        <UpdateService service={service} index={idx} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />)}
-        {updatedUserData.expertInfo.services.length > 1 && <button className={"submit"} type="button" onClick={() => console.log('hi')}>Remove</button>}
+        <UpdateService key={idx + service.name} service={service} index={idx} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />)}
+    
         <AddNewService updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
         </>
     )
