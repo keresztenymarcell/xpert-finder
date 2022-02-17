@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
+import UserService from "../service/UserService";
 
 const LoginPage = ({setUser}) => {
 
@@ -30,9 +31,20 @@ const LoginPage = ({setUser}) => {
           setValidLogin(true);
           window.localStorage.setItem("access_token", data.access_token);
           window.localStorage.setItem("refresh_token", data.refresh_token);
-          setUser(data.username);
+          const userInfo = await getUserInfoFromBackend(data.username);
+          const user = {
+            username: data.username,
+            userId: userInfo.id,
+            isExpert: userInfo.expert
+          }
+          setUser(user);
           navigate("/");
         }
+      }
+
+      async function getUserInfoFromBackend(username) {
+        const response = await UserService.getFetchWithHeader(`/user/get-important-info?username=${username}`);
+        return await response.json();
       }
 
 
