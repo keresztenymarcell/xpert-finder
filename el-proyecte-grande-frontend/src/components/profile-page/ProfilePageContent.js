@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import Rating from '@mui/material/Rating';
@@ -18,7 +18,8 @@ function ProfilePageContent({user}) {
     const [profile, setProfile] = useState(null)
 
     
-    const params = useParams()
+    const params = useParams();
+    const navigate = useNavigate();
 
     
 
@@ -26,8 +27,13 @@ function ProfilePageContent({user}) {
     useEffect(() => {
         async function loadProfile(){
             const response = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
-            const profile = await response.json();
+            if (response.status === 200) {
+                const profile = await response.json();
             setProfile(profile);
+            } else {
+                navigate("/login?error=true");
+            }
+            
         }
         loadProfile();
     }, [params.id])

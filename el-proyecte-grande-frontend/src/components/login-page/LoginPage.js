@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import React from 'react'
 
 const LoginPage = ({saveUserInfoToMemory}) => {
+
+  const search = useLocation().search
+  const error = new URLSearchParams(search).get('error');
 
   function saveTokensToLocalStorage(data) {
     window.localStorage.setItem("access_token", data.access_token);
@@ -48,7 +51,7 @@ const LoginPage = ({saveUserInfoToMemory}) => {
         <div className={"content-container"}>
           <div className={"personal-info-container"}>
             <div>
-              <h1>Please sign in to your account</h1>
+              {error ? <h1>You need to log in for that content! :)</h1> : <h1>Please sign in to your account</h1>}
               <form>
                 <label htmlFor={"username"} className={"form-label"}>Username:</label><br/>
                 <input className={"form-input"} id="username" name="username" type="text" placeholder="johndoe" required onChange={e => {setUsername(e.target.value)}}/><br/>
