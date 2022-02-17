@@ -6,6 +6,7 @@ import SelectProfessionContainer from "./SelectProfessionContainer";
 import UpdateServicesContainer from "./UpdateServicesContainer";
 import {Login} from "../register-page/Login.css"
 import UserService from "../service/UserService";
+import UpdateReferencesContainer from "./UpdateReferencesContainer";
 
 function EditProfileContent({user, professions, locations}) {
 
@@ -151,6 +152,7 @@ function EditProfileContent({user, professions, locations}) {
                     <h2>Services</h2>
                     <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     <h2>References</h2>
+                    <UpdateReferencesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     
                     </form>
                 </>
