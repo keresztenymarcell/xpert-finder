@@ -1,8 +1,5 @@
 import { useParams } from "react-router-dom";
-import Service from './Service';
-import React, {useEffect, useState, useContext} from 'react';
-import UserContext from '../App';
-import ProfessionTag from './ProfessionTag';
+import React, {useEffect, useState} from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import Rating from '@mui/material/Rating';
 import ReferencesContainer from './ReferencesContainer';
@@ -19,7 +16,12 @@ function ProfilePageContent({user}) {
 
     // const user = useContext(UserContext);
     const [profile, setProfile] = useState(null)
+
+    
     const params = useParams()
+
+    
+
 
     useEffect(() => {
         async function loadProfile(){
@@ -35,12 +37,13 @@ function ProfilePageContent({user}) {
             message : message,
             rating : rating,
             userId: user.id,
-            expertId: profile.expertId
+            expertId: profile.expertInfo.id
         }
-        // console.log(body);
+        await UserService.postFetchWithHeader(`/review/new`, JSON.stringify(body))
 
-        // const response = await UserService.postFetchWithHeader(`/review/new`, body)
-        setProfile(profile);
+        const response2 = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
+        const profile2 = await response2.json();
+        setProfile(profile2);
     }
 
     

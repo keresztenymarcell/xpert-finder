@@ -16,13 +16,14 @@ const ReviewContainer = ({reviews , addReview}) => {
 
     function postReview(message, rating){
         addReview(message, rating)
+        toggleIsAdding();
     }
 
     return (
         <>
             <h1>Reviews</h1>
-            <Button variant="outlined" onClick={() => toggleIsAdding()}>Add review</Button>
-        
+            <button className="send-button" onClick={() => toggleIsAdding()}> Add review</button>
+
             {reviews ? reviews.map((review) => {
                 return <Review key={review.id} review={review}/>
             }) : <h3>No reviews yet</h3>}
