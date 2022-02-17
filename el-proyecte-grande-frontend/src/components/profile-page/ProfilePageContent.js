@@ -19,9 +19,14 @@ function ProfilePageContent({user}) {
 
     // const user = useContext(UserContext);
     const [profile, setProfile] = useState(null)
+
+    
     const params = useParams()
     
     console.log(user)
+
+    
+
 
     useEffect(() => {
         async function loadProfile(){
@@ -33,17 +38,18 @@ function ProfilePageContent({user}) {
     }, [params.id])
 
     async function addReview(message, rating){
-        console.log(user);
+
         const body = {
             message : message,
             rating : rating,
             userId: user.id,
-            expertId: profile.expertId
+            expertId: profile.expertInfo.id
         }
-        // console.log(body);
+        const response = await UserService.postFetchWithHeader(`/review/new`, JSON.stringify(body))
 
-        // const response = await UserService.postFetchWithHeader(`/review/new`, body)
-        setProfile(profile);
+        const response2 = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
+        const profile2 = await response2.json();
+        setProfile(profile2);
     }
 
     
