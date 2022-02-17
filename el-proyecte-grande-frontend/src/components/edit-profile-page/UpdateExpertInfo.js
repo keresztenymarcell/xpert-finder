@@ -3,20 +3,46 @@ import SelectLocationContainer from "./SelectLocationContainer";
 import SelectProfessionContainer from "./SelectProfessionContainer";
 import UpdateReferencesContainer from "./UpdateReferencesContainer";
 import UpdateServicesContainer from "./UpdateServicesContainer";
-import { ProfessionsContext } from "../App";
+import { ProfessionsContext, LocationsContext } from "../App";
 
 function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}) {
 
     const professions = useContext(ProfessionsContext);
+    const locations = useContext(LocationsContext);
     const [isChecked, setIsChecked] = useState(false);
+
+    const defaultExpertInfo = {
+        id: null,
+        description: "Introduce yourself here",
+        rating: null,
+        jobCount: 0,
+        references: [
+            {
+                description: "Describe one of your reference works",
+                imagePath: "Paste the URL of a picture"
+            }
+        ],
+        services: [
+            {
+                name: "Give the name of your service here",
+                description: "Describe your service here",
+                price: "Give a price for your service here"
+            }
+        ],
+        locations: [
+            locations[0]
+        ],
+        professions: [
+            professions[0]
+        ]
+
+    }
 
     useEffect(() => {
         async function createNewExpertInfo() {
             if (isChecked) {
-                const response = await fetch("/user/new-expert-info")
-                const newExpertInfo = await response.json()
-                setUpdatedUserData({...updatedUserData, expertInfo:newExpertInfo})
-                console.log(newExpertInfo)
+                setUpdatedUserData({...updatedUserData, expertInfo:defaultExpertInfo})
+                console.log(defaultExpertInfo)
             }
         }
         createNewExpertInfo()
