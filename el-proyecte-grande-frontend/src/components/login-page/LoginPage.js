@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
 import Login from '../register-page/Login.css'
 
-const LoginPage = ({user, setUser}) => {
+const LoginPage = ({setUser}) => {
 
 
     const [username, setUsername] = useState("");
