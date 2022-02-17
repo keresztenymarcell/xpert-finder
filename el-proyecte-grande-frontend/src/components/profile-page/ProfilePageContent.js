@@ -1,17 +1,22 @@
 import { useParams } from "react-router-dom";
 import Service from './Service';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
+import UserContext from '../App';
 import ProfessionTag from './ProfessionTag';
 import DoneIcon from '@mui/icons-material/Done';
 import Rating from '@mui/material/Rating';
 import ReferencesContainer from './ReferencesContainer';
 import ReviewContainer from './ReviewContainer';
 import UserService from '../service/UserService';
+import ServicesContainer from './ServicesContainer';
+import DescriptionContainer from './DescriptionContainer';
+import ProfessionContainer from './ProfessionContainer';
 
 
 
 function ProfilePageContent() {
 
+    const user = useContext(UserContext);
     const [profile, setProfile] = useState(null)
     const params = useParams()
     
@@ -43,31 +48,12 @@ function ProfilePageContent() {
                 </div>
 
                 <div className="right-container">
-
-                    <h1>About me</h1>
-                    <div className="description">
-                        <h3>{profile.expertInfo.description}</h3>
-                    </div>
-
-                    <h1>Services</h1>
-                    <div className="services">
-                
-                        {profile.expertInfo.services.map((service) => {
-                            return <Service key={service.id} service={service}/>
-                        })}
-                        
-                    </div>
-
+                    <DescriptionContainer description={profile.expertInfo.description}/>
+                    <ServicesContainer services={profile.expertInfo.services}/>
                     <ReviewContainer reviews={profile.expertInfo.reviews}/>
-                    <button>Add review</button>
-
                     <ReferencesContainer references={profile.expertInfo.references}/>
-                    
-                    {profile.expertInfo.professions.map((profession) => (
-                        <ProfessionTag key={profession.id} profession={profession}/>
-                    ))}
-                    
-                    </div>
+                    <ProfessionContainer professions={profile.expertInfo.professions}/>
+                </div>
             </div>
             
         </div>
