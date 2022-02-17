@@ -11,6 +11,7 @@ import UserService from '../service/UserService';
 import ServicesContainer from './ServicesContainer';
 import DescriptionContainer from './DescriptionContainer';
 import ProfessionContainer from './ProfessionContainer';
+import AddReviewContainer from './AddReviewContainer';
 
 
 
@@ -33,12 +34,19 @@ function ProfilePageContent() {
         loadProfile();
     }, [])
 
+    function addReview(data){
+        
+
+
+
+    }
+
     
 
     return (
         <>
         {profile === null ? <></> : 
-        <div className="content-container">
+        <div className="profile-page">
             <div className="profile-page-card">
                 <div className="left-container">
                     <img className="profile-picture" src={profile.personalInfo.profilePicture} alt="me"></img><br/>
@@ -51,6 +59,8 @@ function ProfilePageContent() {
                     <DescriptionContainer description={profile.expertInfo.description}/>
                     <ServicesContainer services={profile.expertInfo.services}/>
                     <ReviewContainer reviews={profile.expertInfo.reviews}/>
+                    {/* <AddReviewContainer user={user}/> */}
+                    
                     <ReferencesContainer references={profile.expertInfo.references}/>
                     <ProfessionContainer professions={profile.expertInfo.professions}/>
                 </div>
