@@ -1,6 +1,6 @@
 import SearchBar from './SearchBar'
 
-function MainPageContent({professions, locations}) {
+function MainPageContent() {
     return (
     <>
         <div className="content-container main-page-banner">
@@ -15,7 +15,7 @@ function MainPageContent({professions, locations}) {
             </div>
             
         </div>
-        <SearchBar professions={professions} locations={locations} />
+        <SearchBar />
         </>
 
         

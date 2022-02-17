@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LocationsContext } from "../App";
+import { ProfessionsContext } from "../App";
 
-function SearchBar({locations, professions}) {
+function SearchBar() {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const locations = useContext(LocationsContext);
+    const professions = useContext(ProfessionsContext);
 
     const [choosedProfession, setChoosedProfession] = useState("")
     const [choosedLocation, setChoosedLocation] = useState("")

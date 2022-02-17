@@ -50,7 +50,7 @@ useEffect(() => {
       <Router>
         <Header setUser={setUser}/>
         <Routes>
-          <Route  path='/' element={<MainPageContent professions={professions} locations={locations} />} />
+          <Route  path='/' element={<MainPageContent />} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path='/edit-profile' element={<EditProfileContent user={user} professions={professions} locations={locations} />} />
