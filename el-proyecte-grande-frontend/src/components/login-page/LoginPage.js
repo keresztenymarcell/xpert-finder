@@ -38,7 +38,11 @@ const LoginPage = ({saveUserInfoToMemory}) => {
           setValidLogin(true);
           saveTokensToLocalStorage(data);
           saveUserInfoToMemory(data.access_token);
-          navigate("/");
+          if (error) {
+            navigate(-1);
+          } else {
+            navigate("/");
+          }
         }
       }
 
