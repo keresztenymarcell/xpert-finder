@@ -16,7 +16,7 @@ function EditProfileContent() {
     useEffect(()=>{
         async function getUserData() {
             if (user != null) {
-                const response = await UserService.getFetchWithHeader(`/user/username/${user}`);
+                const response = await UserService.getFetchWithHeader(`/user/username/${user.username}`);
                 const data = await response.json();
                 setUserData(data);
                 setUpdatedUserData(data);

@@ -10,6 +10,7 @@ import SearchPageContent from './search-page/SearchPageContent';
 import RegisterPage from './register-page/RegisterPage'
 import LoginPage from './login-page/LoginPage';
 import EditProfileContent from './edit-profile-page/EditProfileContent'
+import UserService from './service/UserService';
 
 
 export const UserContext = React.createContext();
@@ -45,6 +46,41 @@ useEffect(() => {
     loadLocations()
 }, [])
 
+useEffect(() => {
+  async function loadUser() {
+    if (window.localStorage.getItem("access_token")) {
+      saveUserInfoToMemory(window.localStorage.getItem("access_token"))
+    }
+  }
+  loadUser()
+}, [])
+
+async function saveUserInfoToMemory(accessToken) {
+  const data = parseJwt(accessToken);
+  const userInfo = await getUserInfoFromBackend(data.sub);
+  const user = {
+    username: userInfo.username,
+    id: userInfo.id,
+    isExpert: userInfo.expert
+  }
+  setUser(user);
+}
+
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+};
+
+async function getUserInfoFromBackend(username) {
+  const response = await UserService.getFetchWithHeader(`/user/get-important-info?username=${username}`);
+  return await response.json();
+}
+
   return (
     <>
     <ProfessionsContext.Provider value={professions}>
@@ -58,7 +94,7 @@ useEffect(() => {
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path='/edit-profile' element={<EditProfileContent />} />
           <Route path="/register" element={<RegisterPage />}></Route>
-          <Route path="/login" element={<LoginPage setUser={setUser}/>}></Route>
+          <Route path="/login" element={<LoginPage saveUserInfoToMemory={saveUserInfoToMemory}/>}></Route>
         </Routes>
       </Router>
     </UserContext.Provider>

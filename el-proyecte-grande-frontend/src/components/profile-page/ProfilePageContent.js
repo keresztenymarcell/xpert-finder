@@ -20,8 +20,6 @@ function ProfilePageContent({user}) {
     // const user = useContext(UserContext);
     const [profile, setProfile] = useState(null)
     const params = useParams()
-    
-    console.log(user)
 
     useEffect(() => {
         async function loadProfile(){
@@ -33,7 +31,6 @@ function ProfilePageContent({user}) {
     }, [params.id])
 
     async function addReview(message, rating){
-        console.log(user);
         const body = {
             message : message,
             rating : rating,

@@ -2,9 +2,13 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
-import UserService from "../service/UserService";
 
-const LoginPage = ({setUser}) => {
+const LoginPage = ({saveUserInfoToMemory}) => {
+
+  function saveTokensToLocalStorage(data) {
+    window.localStorage.setItem("access_token", data.access_token);
+    window.localStorage.setItem("refresh_token", data.refresh_token);
+  }
 
 
     const [username, setUsername] = useState("");
@@ -29,24 +33,11 @@ const LoginPage = ({setUser}) => {
           setValidLogin(false);
         } else {
           setValidLogin(true);
-          window.localStorage.setItem("access_token", data.access_token);
-          window.localStorage.setItem("refresh_token", data.refresh_token);
-          const userInfo = await getUserInfoFromBackend(data.username);
-          const user = {
-            username: data.username,
-            id: userInfo.id,
-            isExpert: userInfo.expert
-          }
-          setUser(user);
+          saveTokensToLocalStorage(data);
+          saveUserInfoToMemory(data.access_token);
           navigate("/");
         }
       }
-
-      async function getUserInfoFromBackend(username) {
-        const response = await UserService.getFetchWithHeader(`/user/get-important-info?username=${username}`);
-        return await response.json();
-      }
-
 
     const handleSubmit = (e) => {
         e.preventDefault()

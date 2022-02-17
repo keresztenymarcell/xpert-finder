@@ -11,7 +11,6 @@ const ReviewContainer = ({reviews , addReview}) => {
     const [rating, setRating] = useState(1);
 
     function toggleIsAdding(){
-        console.log(isAdding);
         setIsAdding(!isAdding);
     }
 
