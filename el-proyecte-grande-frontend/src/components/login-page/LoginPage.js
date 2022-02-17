@@ -34,7 +34,7 @@ const LoginPage = ({setUser}) => {
           const userInfo = await getUserInfoFromBackend(data.username);
           const user = {
             username: data.username,
-            userId: userInfo.id,
+            id: userInfo.id,
             isExpert: userInfo.expert
           }
           setUser(user);

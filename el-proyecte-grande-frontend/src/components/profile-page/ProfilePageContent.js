@@ -29,17 +29,19 @@ function ProfilePageContent() {
             setProfile(profile);
         }
         loadProfile();
-    }, [params.id, profile])
+    }, [params.id])
 
     async function addReview(message, rating){
+        console.log(user);
         const body = {
             message : message,
             rating : rating,
             userId: user.id,
             expertId: profile.expertId
         }
+        // console.log(body);
 
-        await UserService.postFetchWithHeader(`/review/new`, body)
+        // const response = await UserService.postFetchWithHeader(`/review/new`, body)
         setProfile(profile);
     }
 

@@ -32,7 +32,7 @@ const Header = ({setUser}) => {
                            return <>
                                 <li>Hello, {user.username}!</li>
                                 <li><Link to="/">Home</Link></li>
-                                {user.isExpert && <Link to={"/profile-" + user.userId}>My Profile</Link>}
+                                {user.isExpert && <Link to={"/profile-" + user.id}>My Profile</Link>}
                                 <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
                                 <li><Link to="/" onClick={() => {clearUser()}}>Log out</Link></li>
                             </>
