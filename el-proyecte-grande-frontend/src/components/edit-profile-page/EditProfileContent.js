@@ -26,9 +26,13 @@ function EditProfileContent() {
     }, [user])
 
 
-    function handleSubmit() {
-        sendUpdatedDataToBackend()
-        navigate("/");
+    async function handleSubmit() {
+        await sendUpdatedDataToBackend()
+        if (updatedUserData.expertInfo) {
+            navigate(`/profile-${user.id}`);
+        } else {
+            navigate("/");
+        }
     }
 
     async function sendUpdatedDataToBackend() {
