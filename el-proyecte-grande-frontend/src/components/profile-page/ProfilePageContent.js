@@ -11,7 +11,7 @@ import UserService from '../service/UserService';
 import ServicesContainer from './ServicesContainer';
 import DescriptionContainer from './DescriptionContainer';
 import ProfessionContainer from './ProfessionContainer';
-import AddReviewContainer from './AddReviewContainer';
+
 
 
 
@@ -29,13 +29,18 @@ function ProfilePageContent() {
             setProfile(profile);
         }
         loadProfile();
-    }, [params.id])
+    }, [params.id, profile])
 
-    function addReview(data){
-        
+    async function addReview(message, rating){
+        const body = {
+            message : message,
+            rating : rating,
+            userId: user.id,
+            expertId: profile.expertId
+        }
 
-
-
+        await UserService.postFetchWithHeader(`/review/new`, body)
+        setProfile(profile);
     }
 
     
@@ -55,7 +60,7 @@ function ProfilePageContent() {
                 <div className="right-container">
                     <DescriptionContainer description={profile.expertInfo.description}/>
                     <ServicesContainer services={profile.expertInfo.services}/>
-                    <ReviewContainer reviews={profile.expertInfo.reviews}/>
+                    <ReviewContainer reviews={profile.expertInfo.reviews} addReview={addReview}/>
                     {/* <AddReviewContainer user={user}/> */}
                     
                     <ReferencesContainer references={profile.expertInfo.references}/>
