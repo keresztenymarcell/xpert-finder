@@ -1,34 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LocationsContext } from "../App";
+import { ProfessionsContext } from "../App";
 
 function SearchBar() {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const locations = useContext(LocationsContext);
+    const professions = useContext(ProfessionsContext);
 
-    const [professions, setProfessions] = useState([])
-    const [locations, setLocations] = useState([])
     const [choosedProfession, setChoosedProfession] = useState("")
     const [choosedLocation, setChoosedLocation] = useState("")
 
-    useEffect(() => {
-        async function loadProfessions() {
-            const response = await fetch("/profession/all")
-            const professions = await response.json()
-            setProfessions(professions)
-
-        }
-        loadProfessions()
-        
-    }, [])
-
-    useEffect(() => {
-        async function loadLocations() {
-            const response = await fetch("/location/all")
-            const locations = await response.json()
-            setLocations(locations)
-        }
-        loadLocations()
-    }, [])
 
     useEffect(() => {
         async function searchBarListener() {

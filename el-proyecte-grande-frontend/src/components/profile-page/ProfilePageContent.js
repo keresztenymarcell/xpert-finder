@@ -18,15 +18,12 @@ function ProfilePageContent() {
 
     useEffect(() => {
         async function loadProfile(){
-            // TODO: add fetch route
-            
             const response = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
             const profile = await response.json();
             setProfile(profile);
-            console.log(profile);
         }
         loadProfile();
-    }, [])
+    }, [params.id])
 
     
 

@@ -13,7 +13,7 @@
   --purple: #482673;
   --orchid: #ed0b70;
   --digiDenim: #301008;
-  --gray: #25343F;
+  --gray: #25343f;
 }
 
 /* to check if css is connected */
@@ -24,7 +24,7 @@ a {
   font-style: bold;
   font-weight: 900;
   font-size: 20px;
-  color:var(--gray);
+  color: var(--gray);
   text-decoration: none;
 }
 
@@ -37,10 +37,8 @@ header {
   width: 100%;
   position: fixed;
   background-color: white;
-  height: 100px;
+  height: var(--header-height);
 }
-
-
 
 .logo {
   cursor: pointer;
@@ -55,12 +53,14 @@ header {
   padding: 0px 20px;
 }
 
-.nav_links li a {
+.nav_links li button {
+  all: unset;
   transition: all 0.3s ease 0s;
 }
 
-.nav_links li a:hover {
+.nav_links li button:hover {
   color: var(--orchid);
+  cursor: pointer;
 }
 
 .main-page-banner {
@@ -86,7 +86,6 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 #gradient-button {
   margin-top: 20px;
@@ -133,6 +132,7 @@ header {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   display: flex;
+  margin: 0 0px 0 7px;
 }
 
 .expert-card:hover {
@@ -141,7 +141,6 @@ header {
   border-width: 3px;
   border-color: var(--turquoise);
   cursor: pointer;
-
 }
 
 .expert-left-container,
@@ -164,8 +163,6 @@ header {
   text-align: center;
   padding-top: 70px;
 }
-
-
 
 .expert-left-container p {
   padding-top: 75px;
@@ -204,10 +201,8 @@ header {
 
 /* Profile page */
 
-.profile-page-card{
+.profile-page-card {
   display: flex;
-  
-  
 }
 
 .profile-page-card > .left-container {
@@ -222,50 +217,46 @@ header {
   text-align: center;
 }
 
-.profile-page-card h1{
+.profile-page-card h1 {
   padding: 20px;
   text-align: left;
   font-size: 45px;
   padding-top: 50px;
   font-weight: bolder;
   color: var(--gray);
-  
 }
 
-
-.profile-page-card span{
+.profile-page-card span {
   margin-top: 15px;
   text-align: left;
 }
 
-.profile-page-card h2{
+.profile-page-card h2 {
   padding-left: 20px;
   margin-top: 20px;
   text-align: left;
   color: black;
 }
 
-
-.profile-page-card p{
+.profile-page-card p {
   padding-top: 50px;
   font-weight: lighter;
   color: var(--gray);
 }
-
 
 .profile-page-card > .right-container {
   padding: 20px;
   padding-top: 50px;
   border-radius: 15px;
   width: 800px;
-  height:fit-content;
+  height: fit-content;
   background-color: #fcfcfc;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   margin-top: 50px;
   margin-left: 40px;
 }
 
-.description{
+.description {
   background-color: var(--turquoise);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
@@ -274,19 +265,17 @@ header {
   border-radius: 15px;
 }
 
-
-.services{
+.services {
   background-color: var(--turquoise);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin: 0px;
   margin-top: 20px;
   border-radius: 15px;
-
 }
 
-.services p{
-  margin:0;
+.services p {
+  margin: 0;
   padding: 5px;
 }
 
@@ -297,7 +286,7 @@ header {
   padding: 10px;
 }
 
-.review-container{
+.review-container {
   max-height: fit-content;
   display: flex;
   background-color: var(--turquoise);
@@ -306,11 +295,9 @@ header {
   margin: 3px;
   margin-top: 20px;
   border-radius: 15px;
-
 }
 
-.review-container img{
-
+.review-container img {
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -319,33 +306,30 @@ header {
   object-fit: cover;
 }
 
-.review-message{
+.review-message {
   margin-left: 20px;
-  max-width: 400px
-  
-  
+  max-width: 400px;
 }
 
-.review-message > p{
- padding-top: 10px;
- font-weight: normal;
- color:black;
+.review-message > p {
+  padding-top: 10px;
+  font-weight: normal;
+  color: black;
 }
 
-.review-timestamp{
+.review-timestamp {
   text-align: end;
   width: 150px;
 }
 
-
-.references-container{
+.references-container {
   background-color: var(--turquoise);
   border-radius: 15px;
   margin-top: 20px;
   display: flex;
 }
 
-.reference{
+.reference {
   text-align: center;
   height: 260px;
   width: 200px;
@@ -358,21 +342,17 @@ header {
   border-width: 2px;
 }
 
-.reference p{
+.reference p {
   margin-top: 15px;
   padding: 0px;
 }
 
-
-
-.reference-picture{
+.reference-picture {
   margin-top: 20px;
- height: 150px;
-
+  height: 150px;
 }
 
-
-.profession-tag{
+.profession-tag {
   align-content: space-between;
   display: flex;
   margin-top: 20px;
@@ -383,7 +363,6 @@ header {
   border-width: 2px;
   border-color: var(--gray);
   border-radius: 3px;
-  
 }
 
 .expert-left-container > .profession-tag {
@@ -395,21 +374,19 @@ header {
   cursor: pointer;
 }
 
-.profession-tag h4{
+.profession-tag h4 {
   color: var(--gray);
   vertical-align: center;
 }
 
-.profession-name{
+.profession-name {
   display: flex;
   align-items: center;
 }
 
-.suitcase-icon{
+.suitcase-icon {
   color: var(--gray);
 }
-
-
 
 #pageTitle {
   font-size: 100px;
@@ -433,9 +410,8 @@ header {
   height: fit-content;
   margin-top: var(--header-height);
   margin-bottom: auto;
+  justify-content: space-between;
 }
-
-
 
 #navBarFunctionalContentContainer {
   height: 80%;
@@ -463,7 +439,19 @@ header {
   text-align: right;
 }
 
-.personal-info-container{
+.simple-content-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.simple-content-container input {
+  text-align: center;
+}
+
+.personal-info-container {
   height: 400px;
   display: flex;
   color: #25343f;
@@ -480,21 +468,27 @@ header {
   height: fit-content;
 }
 
-.searchBar h1{
+.searchBar h1 {
   margin-bottom: 15px;
-
 }
 
+.simple-content-container textarea {
+  resize: none;
+  width: 600px;
+  height: 300px;
+}
+
+.edit-profile-content form * {
+  margin: 10px;
+}
 .validation {
   border: 1px solid;
-	margin: 10px auto;
-	padding: 15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	max-width: 460px;
-  color: #D63301;
-	background-color: #FFCCBA;
-	background-image: url('https://i.imgur.com/GnyDvKN.png');
+  margin: 10px auto;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  max-width: 460px;
+  color: #d63301;
+  background-color: #ffccba;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
 }
-
-

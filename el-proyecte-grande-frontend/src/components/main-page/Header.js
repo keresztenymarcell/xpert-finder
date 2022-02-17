@@ -20,16 +20,21 @@ const Header = ({setUser}) => {
             <Link to="/"><img className="logo" src="Xpert_logo.png" alt="logo"></img></Link>
             <nav>
                 <ul className="nav_links">
-                    <li><Link to="/">Home</Link></li>
                     {(() => {
                         if (!user){
                            return <>
-                            <li><Link to="/login" >Log in</Link></li>
-                            <li><Link to="/register">Register</Link></li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/login" >Log in</Link></li>
+                                <li><Link to="/register">Register</Link></li>
                            </>
                         }
                         else{
-                           return <li><Link to="/" onClick={() => {clearUser()}}>Log out</Link></li> 
+                           return <>
+                                <li>Hello, {user}!</li>
+                                <li><Link to="/">Home</Link></li>
+                                <li><Link to="/" onClick={() => {clearUser()}}>Log out</Link></li>
+                                <li><Link to="/edit-profile"><button>Edit Profile</button></Link></li>
+                            </>
                         }
                     })()}
                 
