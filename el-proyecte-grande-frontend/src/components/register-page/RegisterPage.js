@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from '../register-page/Login.css'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from 'yup';
 import  { useNavigate } from 'react-router-dom';
+import { LocationsContext } from "../App";
 
 
 
@@ -19,10 +20,11 @@ const schema = yup.object().shape({
 
 })
 
-const Personalnfo = () => {
+const RegisterPage = () => {
+
+    const locations = useContext(LocationsContext);
 
     const navigate = useNavigate();
-    const [locations, setLocations] = useState([]);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
@@ -43,15 +45,6 @@ const Personalnfo = () => {
             navigate('/login');
         }
     }
-
-    useEffect(() => {
-        async function loadLocations() {
-            const response = await fetch("/location/all")
-            const locations = await response.json()
-            setLocations(locations)
-        }
-        loadLocations()
-    }, [])
 
     return (
     <div className={"content-container"}>
@@ -134,4 +127,4 @@ const Personalnfo = () => {
     )
 }
 
-export default Personalnfo
+export default RegisterPage

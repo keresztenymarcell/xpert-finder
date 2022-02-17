@@ -12,6 +12,8 @@ import EditProfileContent from './edit-profile-page/EditProfileContent'
 
 
 export const UserContext = React.createContext();
+export const LocationsContext = React.createContext();
+export const ProfessionsContext = React.createContext();
 
 function App() {
 
@@ -42,6 +44,8 @@ useEffect(() => {
 
   return (
     <>
+    <ProfessionsContext.Provider value={professions}>
+    <LocationsContext.Provider value={locations}>
     <UserContext.Provider value={user}>
       <Router>
         <Header setUser={setUser}/>
@@ -50,11 +54,13 @@ useEffect(() => {
           <Route path='/profile-:id' element={<ProfilePageContent />} />
           <Route path='/search-page' element={<SearchPageContent  />} />
           <Route path='/edit-profile' element={<EditProfileContent user={user} professions={professions} locations={locations} />} />
-          <Route path="/register" element={<RegisterPage locations={locations}/>}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>}></Route>
         </Routes>
       </Router>
     </UserContext.Provider>
+    </LocationsContext.Provider>
+    </ProfessionsContext.Provider>
     <Footer/>
     </>
   );
