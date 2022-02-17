@@ -23,6 +23,7 @@ function ProfilePageContent() {
             const response = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
             const profile = await response.json();
             setProfile(profile);
+            console.log(profile);
         }
         loadProfile();
     }, [])
@@ -58,6 +59,8 @@ function ProfilePageContent() {
                     </div>
 
                     <ReviewContainer reviews={profile.expertInfo.reviews}/>
+                    <button>Add review</button>
+
                     <ReferencesContainer references={profile.expertInfo.references}/>
                     
                     {profile.expertInfo.professions.map((profession) => (

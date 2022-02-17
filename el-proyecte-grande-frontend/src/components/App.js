@@ -1,5 +1,5 @@
 import '../css/App.css';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import MainPageContent from './main-page/MainPageContent';
 import Header from './main-page/Header'
@@ -10,6 +10,7 @@ import RegisterPage from './register-page/RegisterPage'
 import LoginPage from './login-page/LoginPage';
 
 
+export const UserContext = React.createContext();
 
 function App() {
 
@@ -17,8 +18,9 @@ function App() {
 
   return (
     <>
+    <UserContext.Provider value={user}>
       <Router>
-        <Header user={user}/>
+        <Header setUser={setUser}/>
         <Routes>
           <Route  path='/' element={<MainPageContent/>} />
           <Route path='/profile-:id' element={<ProfilePageContent />} />
@@ -27,6 +29,7 @@ function App() {
           <Route path="/login" element={<LoginPage setUser={setUser}/>}></Route>
         </Routes>
       </Router>
+    </UserContext.Provider>
     <Footer/>
     </>
   );

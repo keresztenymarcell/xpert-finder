@@ -1,7 +1,13 @@
 import {Link} from "react-router-dom";
+import { UserContext } from '../App';
+import React, { useContext } from 'react';
 
 
-const Header = ({user, setUser}) => {
+
+
+const Header = ({setUser}) => {
+
+    const user = useContext(UserContext)
 
     function clearUser() {
         localStorage.clear();
