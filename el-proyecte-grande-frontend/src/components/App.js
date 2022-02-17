@@ -18,6 +18,8 @@ export const ProfessionsContext = React.createContext();
 
 function App() {
 
+  
+
   const [user, setUser] = useState(null)
 
   const [professions, setProfessions] = useState([])
