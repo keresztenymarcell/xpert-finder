@@ -20,13 +20,13 @@ function UpdateReference({reference, index, updatedUserData, setUpdatedUserData}
     }
 
     return (
-        <form>
+        <div>
             <label htmlFor="name" className={"form-label"}>Reference {index + 1} Description</label><br/>
-            <input className={"form-input"} type="text" defaultValue={reference.description} onChange={(e)=>{updateReferenceDescription(e.target.value)}}></input>
+            <input className={"form-input"} type="text" defaultValue={reference.description} required onChange={(e)=>{updateReferenceDescription(e.target.value)}}></input>
             <label htmlFor="description" className={"form-label"}>Image Path</label><br/>
-            <input className={"form-input"} type="text" defaultValue={reference.imagePath} onChange={(e)=>{updateServiceImagePath(e.target.value)}}></input>
+            <input className={"form-input"} type="text" defaultValue={reference.imagePath} required onChange={(e)=>{updateServiceImagePath(e.target.value)}}></input>
             {references.length > 1 && <button type="button" onClick={()=>{deleteReference()}}>Remove Reference</button>}
-        </form>
+        </div>
     )
 }
 

@@ -8,7 +8,8 @@ function AddNewReference({updatedUserData, setUpdatedUserData}) {
     function addReference() {
         const newReference = {
             description: description,
-            imagePath: imagePath
+            imagePath: imagePath,
+            id: Date.now()
         }
         let references = updatedUserData.expertInfo.references;
         references.push(newReference);
@@ -19,13 +20,13 @@ function AddNewReference({updatedUserData, setUpdatedUserData}) {
     return(
 
             (isOpen) ? 
-            <form>
+            <>
                 <label htmlFor="description" className={"form-label"}>Reference Description</label><br/>
                 <input className={"form-input"} type="text" required onChange={(e)=>{setDescription(e.target.value)}}></input>
                 <label htmlFor="imagePath" className={"form-label"}>Image Path</label><br/>
                 <input className={"form-input"} type="text" required onChange={(e)=>{setImagePath(e.target.value)}}></input>
                 <button type="button" onClick={(e)=>{addReference()}}>Add Reference</button>
-            </form>
+            </>
             :
             <button className={"submit"} type="button" onClick={()=> setIsOpen(true)} >Add</button>
 

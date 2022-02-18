@@ -23,6 +23,7 @@ function SelectLocationContainer({updatedUserData, setUpdatedUserData, updateLoc
 
     return(
         <>
+        <h2>Locations</h2>
         {expertInfoLocations.map((location,idx) =>
         <SelectLocation key={location.id} index={idx} firstValue={updatedUserData.expertInfo.locations[idx].id} updateLocation={updateLocation} locations={locations}/>)}
         {expertInfoLocations.length > 1 && <button className={"submit"} type="button" onClick={() => removeLocation()}>Remove</button>}

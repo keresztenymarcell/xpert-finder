@@ -23,6 +23,7 @@ function SelectProfessionContainer({updatedUserData, setUpdatedUserData, updateP
 
     return(
         <>
+        <h2>Professions</h2>
         {expertInfoProfessions.map((profession,idx) =>
         <SelectProfession key={profession.id} index={idx} firstValue={updatedUserData.expertInfo.professions[idx].id} updateProfession={updateProfession} professions={professions}/>)}
         {expertInfoProfessions.length > 1 && <button className={"submit"} type="button" onClick={() => removeProfession()}>Remove</button>}
