@@ -39,6 +39,7 @@ header {
   position: fixed;
   background-color: white;
   height: var(--header-height);
+  
 }
 
 .logo {
