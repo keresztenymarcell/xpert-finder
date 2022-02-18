@@ -14,6 +14,7 @@
   --orchid: #ed0b70;
   --digiDenim: #301008;
   --gray: #25343f;
+  --lightgray: #e6f5ff;
 }
 
 /* to check if css is connected */
@@ -136,10 +137,10 @@ header {
 }
 
 .expert-card:hover {
-  background-color: lightblue;
+  background-color: var(--lightgray);
   border-style: solid;
-  border-width: 3px;
-  border-color: var(--turquoise);
+  border-width: 1px;
+  border-color: var(--gray);
   cursor: pointer;
 }
 
@@ -174,7 +175,7 @@ header {
 }
 
 .expert-right-container h1 {
-  color: var(--orchid);
+  color: var(--gray);
   padding-bottom: 30px;
 }
 
@@ -215,6 +216,10 @@ header {
   margin-top: 50px;
   margin-left: 50px;
   text-align: center;
+}
+
+.profile-page-card > .rating-stars {
+  text-align: left;
 }
 
 .profile-page-card h1 {
@@ -287,8 +292,10 @@ header {
 }
 
 .review-container {
+  justify-content: space-between;
   max-height: fit-content;
   display: flex;
+  
   background-color: var(--turquoise);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
@@ -306,9 +313,20 @@ header {
   object-fit: cover;
 }
 
-.review-message {
+.search-page-content-container{
+    padding: 5rem;
+    display: flex;
+    height: fit-content;
+    margin-top: var(--header-height);
+    margin-bottom: auto;
+    justify-content: space-between;
+
+}
+
+.review-message{
   margin-left: 20px;
   max-width: 400px;
+
 }
 
 .review-message > p {
@@ -320,6 +338,7 @@ header {
 .review-timestamp {
   text-align: end;
   width: 150px;
+  align-self: flex-end;
 }
 
 .references-container {
@@ -332,7 +351,7 @@ header {
 .reference {
   text-align: center;
   height: 260px;
-  width: 200px;
+  width: fit-content;
   background-color: white;
   margin: 15px;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);

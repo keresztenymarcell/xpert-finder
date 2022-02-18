@@ -21,9 +21,6 @@ function ProfilePageContent({user}) {
     const params = useParams();
     const navigate = useNavigate();
 
-    
-
-
     useEffect(() => {
         async function loadProfile(){
             const response = await UserService.getFetchWithHeader(`/user/${params.id}/expert-profile`);
@@ -61,9 +58,11 @@ function ProfilePageContent({user}) {
             <div className="profile-page-card">
                 <div className="left-container">
                     <img className="profile-picture" src={profile.personalInfo.profilePicture} alt="me"></img><br/>
-                    <Rating name="read-only" value={profile.expertInfo.rating} readOnly />
+                    
                     <h1>{profile.personalInfo.name}</h1>
-                    <h2>{profile.expertInfo.jobCount} jobs done<DoneIcon/></h2>
+                    <h2>{profile.expertInfo.jobCount} jobs done<DoneIcon/></h2><br/><br/><br/>
+                    <p>Rating:</p>
+                    <Rating name="read-only" className={"rating-stars"} value={profile.expertInfo.rating} readOnly />
                 </div>
 
                 <div className="right-container">

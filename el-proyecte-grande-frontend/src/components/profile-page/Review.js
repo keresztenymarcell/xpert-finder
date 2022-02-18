@@ -1,4 +1,5 @@
 import React from 'react'
+import Rating from '@mui/material/Rating';
 
 const Review = ({review}) => {
     return (
@@ -10,7 +11,9 @@ const Review = ({review}) => {
                 <h2>{review.reviewer.username}</h2>
                 <p>{review.message}</p>
             </div>
+
             <div className="review-timestamp">
+                <Rating name="read-only" className={"rating-stars"} value={review.rating} readOnly />
                 <h4 className="timestamp">{review.time}</h4>
             </div>
         </div>
