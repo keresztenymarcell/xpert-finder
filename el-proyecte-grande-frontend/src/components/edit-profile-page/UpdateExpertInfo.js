@@ -101,14 +101,9 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
                             setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, description:e.target.value}})
                         }}></textarea>
                     </label>
-                    <h2>Locations</h2>
                     <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} />
-                        
-                    <h2>Professions</h2>
                     <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} />
-                    <h2>Services</h2>
                     <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
-                    <h2>References</h2>
                     <UpdateReferencesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
                     
                     </form>

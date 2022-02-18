@@ -7,8 +7,10 @@ function UpdateReferencesContainer({updatedUserData, setUpdatedUserData}) {
 
     return (
         <>
+        <h2>References</h2>
+        <h4>{JSON.stringify(updatedUserData.expertInfo.references)}</h4>
         {updatedUserData.expertInfo.references.map((reference,idx) =>
-        <UpdateReference key={"reference" + idx + reference.name} reference={reference} index={idx} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />)}
+        <UpdateReference key={"reference" + reference.id} reference={reference} index={idx} updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />)}
     
         <AddNewReference updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
         </>
