@@ -45,8 +45,10 @@ function EditProfileContent() {
     }
 
     return (
+        <>
+        <h1>Edit Page</h1>
         <div className="content-container simple-content-container edit-profile-content">
-            <h1>Edit Page</h1>
+            
             
             {updatedUserData &&       
             <>
@@ -56,6 +58,7 @@ function EditProfileContent() {
             </>
 }
         </div>
+        </>
     )
 }
 

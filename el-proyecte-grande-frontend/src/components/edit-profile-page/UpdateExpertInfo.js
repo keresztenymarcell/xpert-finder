@@ -4,6 +4,7 @@ import SelectProfessionContainer from "./SelectProfessionContainer";
 import UpdateReferencesContainer from "./UpdateReferencesContainer";
 import UpdateServicesContainer from "./UpdateServicesContainer";
 import { ProfessionsContext, LocationsContext } from "../App";
+import Checkbox from '@mui/material/Checkbox';
 
 function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}) {
 
@@ -92,7 +93,10 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
     
     return (
         <>
+        
         {updatedUserData.expertInfo ?
+                
+                    <div className="edit-expert-info-container">
                     <form>
                     <h2 className="form-title">Expert Info</h2>
                     <label className="form-label">
@@ -100,16 +104,21 @@ function UpdateExpertInfo({updatedUserData, setUpdatedUserData, getLocationById}
                         <textarea defaultValue={updatedUserData.expertInfo.description} onChange={e => {
                             setUpdatedUserData({...updatedUserData, expertInfo:{...updatedUserData.expertInfo, description:e.target.value}})
                         }}></textarea>
+
                     </label>
-                    <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} />
-                    <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} />
-                    <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
-                    <UpdateReferencesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
+                        <SelectLocationContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateLocation={updateWorkLocation} />
+                        <SelectProfessionContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} updateProfession={updateProfession} />
+                    
+                        <UpdateServicesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
+                        <UpdateReferencesContainer updatedUserData={updatedUserData} setUpdatedUserData={setUpdatedUserData} />
+                    
                     
                     </form>
+                    </div>
+                
         :
         <>
-        <input type="checkbox" id="expert" name="expert" onChange={()=> setIsChecked(!isChecked)} />
+        <Checkbox onChange={()=> setIsChecked(!isChecked)} ></Checkbox>
         <label htmlFor="expert">I want to be an expert</label>
         </>
         }

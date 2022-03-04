@@ -12,6 +12,7 @@
   --softLilac: #f6ebf4;
   --purple: #482673;
   --orchid: #ed0b70;
+  --pink: #d5abbe;
   --digiDenim: #301008;
   --gray: #25343f;
   --lightgray: #e6f5ff;
@@ -263,7 +264,7 @@ header {
 }
 
 .description {
-  background-color: var(--turquoise);
+  background-color: var(--pink);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin: 3px;
@@ -272,7 +273,7 @@ header {
 }
 
 .services {
-  background-color: var(--turquoise);
+  background-color: var(--pink);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin: 0px;
@@ -297,7 +298,7 @@ header {
   max-height: fit-content;
   display: flex;
   
-  background-color: var(--turquoise);
+  background-color: var(--pink);
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 20px;
   margin: 3px;
@@ -343,7 +344,7 @@ header {
 }
 
 .references-container {
-  background-color: var(--turquoise);
+  background-color: var(--pink);
   border-radius: 15px;
   margin-top: 20px;
   display: flex;
@@ -460,9 +461,10 @@ header {
 }
 
 .simple-content-container {
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   justify-items: center;
   text-align: center;
 }
@@ -471,6 +473,11 @@ header {
   text-align: center;
 }
 
+.simple-content-container h1 {
+  margin: 20px;
+}
+
+
 .personal-info-container {
   height: 400px;
   display: flex;
@@ -478,6 +485,26 @@ header {
   margin-top: 200px;
   justify-content: center;
   align-items: center;
+}
+
+.edit-expert-info-container{
+    margin: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 20px;
+    width:fit-content;
+    border: #dedede solid 2px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.edit-expert-info-container p {
+
+}
+
+.edit-expert-info-container h2 {
+  margin-top: 20px;
 }
 
 .searchBar {
@@ -588,6 +615,18 @@ header {
   text-align: center;
   width: 100%;
   cursor: pointer;
+}
+
+.edit-personal-info{
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 20px;
+    width: 500px;
+    border: #dedede solid 2px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+
 }
 
 .rating-button{
